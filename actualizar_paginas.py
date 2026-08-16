@@ -226,11 +226,13 @@ def corregir_caracteres_todas():
         try:
             contenido, cod = leer_con_codificacion_fallback(ruta)
             
-            # Reemplazar caracteres problemáticos
+            # ===== REEMPLAZAR SIGNOS DE INTERROGACIÓN Y CARACTERES ROTOS =====
             contenido = contenido.replace('�', '')
             contenido = contenido.replace('??', '')
             contenido = contenido.replace('��', '')
             contenido = contenido.replace('��', '')
+            contenido = contenido.replace('?', '')   # <--- ELIMINA TODOS LOS "?"
+            contenido = contenido.replace('�', '')
             
             # Guardar en UTF-8
             with open(ruta, 'w', encoding='utf-8') as f:
