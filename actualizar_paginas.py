@@ -164,28 +164,6 @@ def corregir_caracteres_todas():
 def agregar_maps_todas():
     """Agrega Google Maps a todas las páginas de comunas"""
     
-    coordenadas = {
-        'cerro-navia': '-33.4167,-70.7167',
-        'conchali': '-33.3833,-70.6833',
-        'huechuraba': '-33.3500,-70.6833',
-        'independencia': '-33.4167,-70.6667',
-        'la-dehesa': '-33.3667,-70.5667',
-        'la-florida': '-33.5167,-70.6000',
-        'las-condes': '-33.4145,-70.5785',
-        'lo-barnechea': '-33.3500,-70.5500',
-        'macul': '-33.4833,-70.6000',
-        'maipu': '-33.5167,-70.7667',
-        'nunoa': '-33.4667,-70.6000',
-        'providencia': '-33.4333,-70.6167',
-        'pudahuel': '-33.4333,-70.7500',
-        'quilicura': '-33.3667,-70.7333',
-        'recoleta': '-33.4167,-70.6500',
-        'renca': '-33.4000,-70.7167',
-        'san-miguel': '-33.5000,-70.6500',
-        'santiago-centro': '-33.4500,-70.6667',
-        'vitacura': '-33.3833,-70.5667'
-    }
-    
     archivos = [f for f in os.listdir(CARPETA_COMUNAS) if f.endswith('.html')]
     
     for archivo in archivos:
@@ -213,9 +191,7 @@ def agregar_maps_todas():
             }
             comuna = nombres_especiales.get(nombre_archivo, comuna)
             
-            coords = coordenadas.get(nombre_archivo, '-33.4500,-70.6667')
-            lat, lng = coords.split(',')
-            
+            # MAPA CORREGIDO - Usando iframe con URL simple
             mapa_html = f'''
     <!-- ===== GOOGLE MAPS ===== -->
     <section class="section-mapa" style="padding:40px 0; background:var(--color-dark);">
@@ -224,7 +200,7 @@ def agregar_maps_todas():
         <p class="section-subtitle">Encuentranos fácilmente en {comuna}. ¡Llegamos en minutos!</p>
         <div style="border-radius:20px; overflow:hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 2px solid rgba(56,189,248,0.2);">
           <iframe 
-            src="https://www.google.com/maps?q={lat},{lng}&z=13&output=embed"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q={comuna},+Santiago,+Chile"
             width="100%" 
             height="400" 
             style="border:0; display:block;"
@@ -241,10 +217,17 @@ def agregar_maps_todas():
     </section>
     '''
             
-            contenido = contenido.replace(
-                '<section id="contacto" class="section-contacto">',
-                mapa_html + '\n\n  <section id="contacto" class="section-contacto">'
-            )
+            # Buscar dónde insertar el mapa
+            if 'section-contacto' in contenido:
+                contenido = contenido.replace(
+                    '<section id="contacto" class="section-contacto">',
+                    mapa_html + '\n\n  <section id="contacto" class="section-contacto">'
+                )
+            else:
+                contenido = contenido.replace(
+                    '<footer',
+                    mapa_html + '\n\n  <footer'
+                )
             
             with open(ruta, 'w', encoding='utf-8') as f:
                 f.write(contenido)
@@ -270,11 +253,10 @@ def actualizar_whatsapp_flotante():
             with open(ruta, 'r', encoding='utf-8') as f:
                 contenido = f.read()
             
-            # Extraer nombre de comuna desde el archivo
+            # Extraer nombre de comuna
             nombre_base = os.path.splitext(archivo)[0]
             comuna = nombre_base.replace('-', ' ').title()
             
-            # Mapear nombres especiales
             nombres_especiales = {
                 'cerro-navia': 'Cerro Navia',
                 'la-dehesa': 'La Dehesa',
@@ -290,16 +272,26 @@ def actualizar_whatsapp_flotante():
             mensaje = f"Hola%2C%20necesito%20un%20destape%20urgente%20en%20{comuna}"
             url_whatsapp = f"https://wa.me/56972091242?text={mensaje}"
             
-            # Nuevo botón flotante
-            nuevo_boton = f'''<a href="{url_whatsapp}" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp urgente">💬</a>'''
+            # Botón flotante con estilos incluidos
+            nuevo_boton = f'''
+    <!-- WhatsApp Float -->
+    <a href="{url_whatsapp}" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp urgente" style="position:fixed;bottom:24px;right:24px;width:60px;height:60px;background:linear-gradient(135deg,#34d399,#10b981);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;box-shadow:0 4px 24px rgba(52,211,153,0.35);z-index:1000;transition:all 0.3s ease;animation:pulse-whatsapp 1.8s infinite;text-decoration:none;">💬</a>
+    <style>
+    .whatsapp-float:hover {{ transform:scale(1.1); box-shadow:0 6px 32px rgba(52,211,153,0.55); }}
+    @keyframes pulse-whatsapp {{ 0% {{ box-shadow:0 0 0 0 rgba(52,211,153,0.5); }} 70% {{ box-shadow:0 0 0 14px rgba(52,211,153,0); }} 100% {{ box-shadow:0 0 0 0 rgba(52,211,153,0); }} }}
+    </style>
+    '''
             
-            # Reemplazar el botón existente
-            contenido = re.sub(
-                r'<a href="https://wa\.me/56972091242\?text=[^"]*" class="whatsapp-float"[^>]*>.*?</a>',
-                nuevo_boton,
-                contenido,
-                flags=re.DOTALL
-            )
+            # Reemplazar o agregar botón
+            if 'whatsapp-float' in contenido:
+                contenido = re.sub(
+                    r'<a href="https://wa\.me/[^"]*" class="whatsapp-float"[^>]*>.*?</a>',
+                    nuevo_boton,
+                    contenido,
+                    flags=re.DOTALL
+                )
+            else:
+                contenido = contenido.replace('</body>', nuevo_boton + '\n</body>')
             
             with open(ruta, 'w', encoding='utf-8') as f:
                 f.write(contenido)
@@ -315,16 +307,13 @@ def actualizar_whatsapp_flotante():
 # ============================================================
 
 def regenerar_paginas_problema():
-    """Regenera TODAS las páginas con el diseño de Vitacura, respetando el contenido de cada comuna"""
+    """Regenera TODAS las páginas con el diseño de Vitacura"""
     
     plantilla_ruta = os.path.join(CARPETA_COMUNAS, 'vitacura.html')
     
     if not os.path.exists(plantilla_ruta):
-        print("❌ Plantilla 'vitacura.html' no encontrada. Usando 'las-condes.html' como alternativa...")
-        plantilla_ruta = os.path.join(CARPETA_COMUNAS, 'las-condes.html')
-        if not os.path.exists(plantilla_ruta):
-            print("❌ No se encontró ninguna plantilla")
-            return
+        print("❌ Plantilla 'vitacura.html' no encontrada")
+        return
     
     comunas_a_regenerar = [
         'cerro-navia', 'conchali', 'huechuraba', 'independencia',
