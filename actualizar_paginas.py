@@ -77,6 +77,11 @@ def actualizar_archivo(ruta):
             flags=re.DOTALL
         )
         
+        # CORREGIR CARACTERES RAROS: Reemplazar símbolos comunes rotos
+        contenido = contenido.replace('�', '')
+        contenido = contenido.replace('??', '')
+        contenido = contenido.replace('��', '')
+        
         # Guardar en UTF-8
         with open(ruta, 'w', encoding='utf-8') as f:
             f.write(contenido)
@@ -127,7 +132,117 @@ def corregir_todos_enlaces_index():
 
 
 # ============================================================
-# 5. FUNCIÓN PRINCIPAL
+# 5. FUNCIÓN: Regenerar páginas específicas con problemas
+# ============================================================
+
+def regenerar_paginas_problema():
+    """Regenera las páginas con problemas (Renca, Pudahuel, La Dehesa, Macul)"""
+    paginas_problema = ['renca', 'pudahuel', 'la-dehesa', 'macul']
+    
+    # Usar Las Condes como plantilla base
+    plantilla_ruta = os.path.join(CARPETA_COMUNAS, 'las-condes.html')
+    
+    if not os.path.exists(plantilla_ruta):
+        print("❌ Plantilla 'las-condes.html' no encontrada")
+        return
+    
+    try:
+        with open(plantilla_ruta, 'r', encoding='utf-8') as f:
+            plantilla = f.read()
+        
+        for comuna in paginas_problema:
+            ruta = os.path.join(CARPETA_COMUNAS, f'{comuna}.html')
+            
+            # Verificar si el archivo existe
+            if not os.path.exists(ruta):
+                print(f"⚠️  {ruta} no existe, creando desde plantilla...")
+            
+            # Leer el contenido actual si existe
+            if os.path.exists(ruta):
+                with open(ruta, 'r', encoding='utf-8') as f:
+                    contenido_actual = f.read()
+                
+                # Extraer el título de la página actual
+                match = re.search(r'<title>(.*?)</title>', contenido_actual)
+                if match:
+                    titulo = match.group(1)
+                else:
+                    titulo = f'Destape en {comuna.replace("-", " ").title()}'
+                
+                # Extraer el nombre de la comuna del H1
+                match_h1 = re.search(r'<h1 class="hero-title">(.*?)</h1>', contenido_actual)
+                if match_h1:
+                    hero_text = match_h1.group(1)
+                else:
+                    hero_text = f'Destape urgente en {comuna.replace("-", " ").title()}'
+            else:
+                titulo = f'Destape en {comuna.replace("-", " ").title()}'
+                hero_text = f'Destape urgente en {comuna.replace("-", " ").title()}'
+            
+            # Crear nuevo contenido basado en plantilla
+            nuevo_contenido = plantilla
+            
+            # Reemplazar título
+            nuevo_contenido = re.sub(
+                r'<title>.*?</title>',
+                f'<title>{titulo}</title>',
+                nuevo_contenido
+            )
+            
+            # Reemplazar H1
+            nuevo_contenido = re.sub(
+                r'<h1 class="hero-title">.*?</h1>',
+                f'<h1 class="hero-title">{hero_text}</h1>',
+                nuevo_contenido
+            )
+            
+            # Reemplazar meta description
+            nuevo_contenido = re.sub(
+                r'<meta name="description" content=".*?">',
+                f'<meta name="description" content="Destape urgente en {comuna.replace("-", " ").title()}. Técnicos 24/7 para destape alcantarillado, WC y drenajes. Atención inmediata en toda la comuna.">',
+                nuevo_contenido
+            )
+            
+            # Guardar
+            with open(ruta, 'w', encoding='utf-8') as f:
+                f.write(nuevo_contenido)
+            
+            print(f"✅ {ruta} regenerado correctamente")
+            
+    except Exception as e:
+        print(f"❌ Error regenerando páginas: {e}")
+
+
+# ============================================================
+# 6. FUNCIÓN: Corregir caracteres en todas las páginas
+# ============================================================
+
+def corregir_caracteres_todas():
+    """Corrige caracteres raros en todas las páginas de comunas"""
+    archivos = [f for f in os.listdir(CARPETA_COMUNAS) if f.endswith('.html')]
+    
+    for archivo in archivos:
+        ruta = os.path.join(CARPETA_COMUNAS, archivo)
+        try:
+            contenido, cod = leer_con_codificacion_fallback(ruta)
+            
+            # Reemplazar caracteres problemáticos
+            contenido = contenido.replace('�', '')
+            contenido = contenido.replace('??', '')
+            contenido = contenido.replace('��', '')
+            contenido = contenido.replace('��', '')
+            
+            # Guardar en UTF-8
+            with open(ruta, 'w', encoding='utf-8') as f:
+                f.write(contenido)
+            
+            print(f"✅ {ruta} caracteres corregidos")
+        except Exception as e:
+            print(f"❌ Error en {ruta}: {e}")
+
+
+# ============================================================
+# 7. FUNCIÓN PRINCIPAL
 # ============================================================
 
 def main():
@@ -139,7 +254,15 @@ def main():
     print("\n📄 Corrigiendo enlaces en index.html...")
     corregir_todos_enlaces_index()
     
-    # PASO 2: Actualizar páginas de comunas
+    # PASO 2: Corregir caracteres en todas las páginas
+    print("\n🔤 Corrigiendo caracteres raros en todas las páginas...")
+    corregir_caracteres_todas()
+    
+    # PASO 3: Regenerar páginas con problemas
+    print("\n🔄 Regenerando páginas con problemas...")
+    regenerar_paginas_problema()
+    
+    # PASO 4: Actualizar páginas de comunas
     if not os.path.exists(CARPETA_COMUNAS):
         print(f"\n❌ Carpeta '{CARPETA_COMUNAS}' no encontrada")
         return
@@ -162,11 +285,13 @@ def main():
     print("=" * 50)
     print(f"\n✅ {actualizados} páginas de comunas actualizadas correctamente")
     print("✅ index.html con enlaces corregidos")
+    print("✅ Caracteres raros eliminados")
+    print("✅ Páginas con problemas regeneradas")
     print("\n🎯 ¡TODO LISTO! Sube los cambios a GitHub.")
 
 
 # ============================================================
-# 6. EJECUTAR
+# 8. EJECUTAR
 # ============================================================
 
 if __name__ == "__main__":
