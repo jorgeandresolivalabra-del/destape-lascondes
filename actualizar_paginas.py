@@ -1,8 +1,11 @@
 import os
 import re
-import chardet
 
 CARPETA_COMUNAS = "comunas"
+
+# ============================================================
+# 1. CONFIGURACIÓN: Panel de enlaces legales
+# ============================================================
 
 NUEVO_PANEL = '''      <div class="footer-panel coverage-panel">
         <h4>Enlaces legales</h4>
@@ -21,6 +24,10 @@ NUEVO_FOOTER = '''    <div class="container footer-bottom">
       </div>
     </div>'''
 
+
+# ============================================================
+# 2. FUNCIÓN: Leer archivos con diferentes codificaciones
+# ============================================================
 
 def leer_con_codificacion_fallback(ruta):
     """Intenta leer el archivo con diferentes codificaciones"""
@@ -41,9 +48,12 @@ def leer_con_codificacion_fallback(ruta):
         return contenido, 'utf-8 (con reemplazo)'
 
 
+# ============================================================
+# 3. FUNCIÓN: Actualizar páginas de comunas
+# ============================================================
+
 def actualizar_archivo(ruta):
     try:
-        # Leer el archivo con fallback
         contenido, cod_usada = leer_con_codificacion_fallback(ruta)
         
         # Saltar si ya está actualizado
@@ -79,9 +89,59 @@ def actualizar_archivo(ruta):
         return False
 
 
+# ============================================================
+# 4. FUNCIÓN: Corregir TODOS los enlaces a comunas en index.html
+# ============================================================
+
+def corregir_todos_enlaces_index():
+    """Corrige TODOS los enlaces a comunas en index.html"""
+    ruta = "index.html"
+    try:
+        with open(ruta, 'r', encoding='utf-8') as f:
+            contenido = f.read()
+        
+        # Lista de todas las comunas
+        comunas = [
+            'las-condes', 'vitacura', 'lo-barnechea', 'recoleta', 
+            'independencia', 'quilicura', 'conchali', 'huechuraba', 
+            'renca', 'cerro-navia', 'pudahuel', 'maipu', 
+            'san-miguel', 'la-florida', 'nunoa', 'santiago-centro', 
+            'macul', 'la-dehesa', 'Santiago'
+        ]
+        
+        for comuna in comunas:
+            # Reemplazar href="comuna.html" por href="comunas/comuna.html"
+            contenido = contenido.replace(
+                f'href="{comuna}.html"',
+                f'href="comunas/{comuna}.html"'
+            )
+        
+        with open(ruta, 'w', encoding='utf-8') as f:
+            f.write(contenido)
+        
+        print(f"✅ {ruta} actualizado (TODOS los enlaces a comunas corregidos)")
+        return True
+    except Exception as e:
+        print(f"❌ Error en {ruta}: {e}")
+        return False
+
+
+# ============================================================
+# 5. FUNCIÓN PRINCIPAL
+# ============================================================
+
 def main():
+    print("=" * 50)
+    print("🔧 ACTUALIZANDO SITIO COMPLETO")
+    print("=" * 50)
+    
+    # PASO 1: Corregir enlaces en index.html
+    print("\n📄 Corrigiendo enlaces en index.html...")
+    corregir_todos_enlaces_index()
+    
+    # PASO 2: Actualizar páginas de comunas
     if not os.path.exists(CARPETA_COMUNAS):
-        print(f"❌ Carpeta '{CARPETA_COMUNAS}' no encontrada")
+        print(f"\n❌ Carpeta '{CARPETA_COMUNAS}' no encontrada")
         return
     
     archivos = [f for f in os.listdir(CARPETA_COMUNAS) if f.endswith('.html')]
@@ -90,7 +150,7 @@ def main():
         print(f"❌ No se encontraron archivos HTML en '{CARPETA_COMUNAS}'")
         return
     
-    print(f"📂 Encontrados {len(archivos)} archivos en '{CARPETA_COMUNAS}'")
+    print(f"\n📂 Encontrados {len(archivos)} archivos en '{CARPETA_COMUNAS}'")
     print("=" * 50)
     
     actualizados = 0
@@ -100,8 +160,14 @@ def main():
             actualizados += 1
     
     print("=" * 50)
-    print(f"✅ {actualizados} páginas actualizadas correctamente")
+    print(f"\n✅ {actualizados} páginas de comunas actualizadas correctamente")
+    print("✅ index.html con enlaces corregidos")
+    print("\n🎯 ¡TODO LISTO! Sube los cambios a GitHub.")
 
+
+# ============================================================
+# 6. EJECUTAR
+# ============================================================
 
 if __name__ == "__main__":
     main()
