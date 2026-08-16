@@ -136,48 +136,68 @@ def corregir_todos_enlaces_index():
 # ============================================================
 
 def regenerar_paginas_problema():
-    """Regenera las páginas con problemas (Renca, Pudahuel, La Dehesa, Macul)"""
-    paginas_problema = ['renca', 'pudahuel', 'la-dehesa', 'macul']
+    """Regenera TODAS las páginas con el diseño de Vitacura, respetando el contenido de cada comuna"""
     
-    # Usar Las Condes como plantilla base
-    plantilla_ruta = os.path.join(CARPETA_COMUNAS, 'las-condes.html')
+    # Usar Vitacura como plantilla base (diseño nuevo)
+    plantilla_ruta = os.path.join(CARPETA_COMUNAS, 'vitacura.html')
     
     if not os.path.exists(plantilla_ruta):
-        print("❌ Plantilla 'las-condes.html' no encontrada")
-        return
+        print("❌ Plantilla 'vitacura.html' no encontrada. Usando 'las-condes.html' como alternativa...")
+        plantilla_ruta = os.path.join(CARPETA_COMUNAS, 'las-condes.html')
+        if not os.path.exists(plantilla_ruta):
+            print("❌ No se encontró ninguna plantilla")
+            return
+    
+    # Lista de TODAS las comunas (excepto vitacura que es la plantilla)
+    comunas_a_regenerar = [
+        'cerro-navia', 'conchali', 'huechuraba', 'independencia',
+        'la-dehesa', 'la-florida', 'las-condes', 'lo-barnechea',
+        'macul', 'maipu', 'nunoa', 'providencia', 'pudahuel',
+        'quilicura', 'recoleta', 'renca', 'san-miguel',
+        'santiago-centro'
+    ]
+    
+    # Mapeo de nombres especiales
+    nombres_especiales = {
+        'nunoa': 'Ñuñoa',
+        'santiago-centro': 'Santiago Centro',
+        'cerro-navia': 'Cerro Navia',
+        'la-dehesa': 'La Dehesa',
+        'la-florida': 'La Florida',
+        'las-condes': 'Las Condes',
+        'lo-barnechea': 'Lo Barnechea'
+    }
     
     try:
         with open(plantilla_ruta, 'r', encoding='utf-8') as f:
             plantilla = f.read()
         
-        for comuna in paginas_problema:
+        for comuna in comunas_a_regenerar:
             ruta = os.path.join(CARPETA_COMUNAS, f'{comuna}.html')
             
-            # Verificar si el archivo existe
-            if not os.path.exists(ruta):
-                print(f"⚠️  {ruta} no existe, creando desde plantilla...")
+            # Obtener nombre legible
+            nombre_comuna = nombres_especiales.get(comuna, comuna.replace('-', ' ').title())
             
-            # Leer el contenido actual si existe
+            # Leer contenido actual para extraer información
             if os.path.exists(ruta):
                 with open(ruta, 'r', encoding='utf-8') as f:
                     contenido_actual = f.read()
                 
-                # Extraer el título de la página actual
+                # Extraer título
                 match = re.search(r'<title>(.*?)</title>', contenido_actual)
-                if match:
-                    titulo = match.group(1)
-                else:
-                    titulo = f'Destape en {comuna.replace("-", " ").title()}'
+                titulo = match.group(1) if match else f'Destape en {nombre_comuna}'
                 
-                # Extraer el nombre de la comuna del H1
+                # Extraer H1
                 match_h1 = re.search(r'<h1 class="hero-title">(.*?)</h1>', contenido_actual)
-                if match_h1:
-                    hero_text = match_h1.group(1)
-                else:
-                    hero_text = f'Destape urgente en {comuna.replace("-", " ").title()}'
+                hero_text = match_h1.group(1) if match_h1 else f'Destape urgente en {nombre_comuna}'
+                
+                # Extraer meta description
+                match_desc = re.search(r'<meta name="description" content="(.*?)">', contenido_actual)
+                meta_desc = match_desc.group(1) if match_desc else f'Destape urgente en {nombre_comuna}. Técnicos 24/7.'
             else:
-                titulo = f'Destape en {comuna.replace("-", " ").title()}'
-                hero_text = f'Destape urgente en {comuna.replace("-", " ").title()}'
+                titulo = f'Destape en {nombre_comuna}'
+                hero_text = f'Destape urgente en {nombre_comuna}'
+                meta_desc = f'Destape urgente en {nombre_comuna}. Técnicos 24/7.'
             
             # Crear nuevo contenido basado en plantilla
             nuevo_contenido = plantilla
@@ -199,15 +219,43 @@ def regenerar_paginas_problema():
             # Reemplazar meta description
             nuevo_contenido = re.sub(
                 r'<meta name="description" content=".*?">',
-                f'<meta name="description" content="Destape urgente en {comuna.replace("-", " ").title()}. Técnicos 24/7 para destape alcantarillado, WC y drenajes. Atención inmediata en toda la comuna.">',
+                f'<meta name="description" content="{meta_desc}">',
                 nuevo_contenido
+            )
+            
+            # Reemplazar el nombre en el logo (texto "Vitacura" por la comuna)
+            nuevo_contenido = nuevo_contenido.replace(
+                'Destapes <span>Vitacura 24H</span>',
+                f'Destapes <span>{nombre_comuna} 24H</span>'
+            )
+            nuevo_contenido = nuevo_contenido.replace(
+                'Destapes Vitacura 24H',
+                f'Destapes {nombre_comuna} 24H'
+            )
+            
+            # Reemplazar en el texto del hero
+            nuevo_contenido = nuevo_contenido.replace(
+                'Destape urgente en Vitacura',
+                f'Destape urgente en {nombre_comuna}'
+            )
+            
+            # Reemplazar en el título de servicios
+            nuevo_contenido = nuevo_contenido.replace(
+                'Nuestros servicios en Vitacura',
+                f'Nuestros servicios en {nombre_comuna}'
+            )
+            
+            # Reemplazar en la cobertura
+            nuevo_contenido = nuevo_contenido.replace(
+                'atendemos cerca de ti',
+                'atendemos cerca de ti'
             )
             
             # Guardar
             with open(ruta, 'w', encoding='utf-8') as f:
                 f.write(nuevo_contenido)
             
-            print(f"✅ {ruta} regenerado correctamente")
+            print(f"✅ {ruta} regenerado con diseño de Vitacura")
             
     except Exception as e:
         print(f"❌ Error regenerando páginas: {e}")
@@ -296,5 +344,9 @@ def main():
 # 8. EJECUTAR
 # ============================================================
 
+# ============================================================
+# 8. EJECUTAR (REGEBERAR PÁGINAS CON DISEÑO DE VITACURA)
+# ============================================================
+
 if __name__ == "__main__":
-    main()
+    regenerar_paginas_problema()
