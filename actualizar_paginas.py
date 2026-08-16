@@ -49,7 +49,7 @@ def leer_con_codificacion_fallback(ruta):
 
 
 # ============================================================
-# 3. FUNCIÓN: Actualizar páginas de comunas
+# 3. FUNCIÓN: Actualizar páginas de comunas (footer + caracteres)
 # ============================================================
 
 def actualizar_archivo(ruta):
@@ -77,10 +77,11 @@ def actualizar_archivo(ruta):
             flags=re.DOTALL
         )
         
-        # CORREGIR CARACTERES RAROS: Reemplazar símbolos comunes rotos
+        # CORREGIR CARACTERES RAROS
         contenido = contenido.replace('�', '')
         contenido = contenido.replace('??', '')
         contenido = contenido.replace('��', '')
+        contenido = contenido.replace('?', '')   # Elimina signos de interrogación sueltos
         
         # Guardar en UTF-8
         with open(ruta, 'w', encoding='utf-8') as f:
@@ -105,7 +106,6 @@ def corregir_todos_enlaces_index():
         with open(ruta, 'r', encoding='utf-8') as f:
             contenido = f.read()
         
-        # Lista de todas las comunas
         comunas = [
             'las-condes', 'vitacura', 'lo-barnechea', 'recoleta', 
             'independencia', 'quilicura', 'conchali', 'huechuraba', 
@@ -115,7 +115,6 @@ def corregir_todos_enlaces_index():
         ]
         
         for comuna in comunas:
-            # Reemplazar href="comuna.html" por href="comunas/comuna.html"
             contenido = contenido.replace(
                 f'href="{comuna}.html"',
                 f'href="comunas/{comuna}.html"'
@@ -132,13 +131,137 @@ def corregir_todos_enlaces_index():
 
 
 # ============================================================
-# 5. FUNCIÓN: Regenerar páginas específicas con problemas
+# 5. FUNCIÓN: Corregir caracteres en todas las páginas
+# ============================================================
+
+def corregir_caracteres_todas():
+    """Corrige caracteres raros en todas las páginas de comunas"""
+    archivos = [f for f in os.listdir(CARPETA_COMUNAS) if f.endswith('.html')]
+    
+    for archivo in archivos:
+        ruta = os.path.join(CARPETA_COMUNAS, archivo)
+        try:
+            contenido, cod = leer_con_codificacion_fallback(ruta)
+            
+            contenido = contenido.replace('�', '')
+            contenido = contenido.replace('??', '')
+            contenido = contenido.replace('��', '')
+            contenido = contenido.replace('��', '')
+            contenido = contenido.replace('?', '')
+            
+            with open(ruta, 'w', encoding='utf-8') as f:
+                f.write(contenido)
+            
+            print(f"✅ {ruta} caracteres corregidos")
+        except Exception as e:
+            print(f"❌ Error en {ruta}: {e}")
+
+
+# ============================================================
+# 6. FUNCIÓN: Agregar Google Maps a todas las páginas
+# ============================================================
+
+def agregar_maps_todas():
+    """Agrega Google Maps a todas las páginas de comunas"""
+    
+    coordenadas = {
+        'cerro-navia': '-33.4167,-70.7167',
+        'conchali': '-33.3833,-70.6833',
+        'huechuraba': '-33.3500,-70.6833',
+        'independencia': '-33.4167,-70.6667',
+        'la-dehesa': '-33.3667,-70.5667',
+        'la-florida': '-33.5167,-70.6000',
+        'las-condes': '-33.4145,-70.5785',
+        'lo-barnechea': '-33.3500,-70.5500',
+        'macul': '-33.4833,-70.6000',
+        'maipu': '-33.5167,-70.7667',
+        'nunoa': '-33.4667,-70.6000',
+        'providencia': '-33.4333,-70.6167',
+        'pudahuel': '-33.4333,-70.7500',
+        'quilicura': '-33.3667,-70.7333',
+        'recoleta': '-33.4167,-70.6500',
+        'renca': '-33.4000,-70.7167',
+        'san-miguel': '-33.5000,-70.6500',
+        'santiago-centro': '-33.4500,-70.6667',
+        'vitacura': '-33.3833,-70.5667'
+    }
+    
+    archivos = [f for f in os.listdir(CARPETA_COMUNAS) if f.endswith('.html')]
+    
+    for archivo in archivos:
+        ruta = os.path.join(CARPETA_COMUNAS, archivo)
+        try:
+            with open(ruta, 'r', encoding='utf-8') as f:
+                contenido = f.read()
+            
+            # Verificar si ya tiene mapa
+            if 'google.com/maps' in contenido:
+                print(f"⏭️  {ruta} ya tiene mapa")
+                continue
+            
+            nombre_archivo = os.path.splitext(archivo)[0]
+            comuna = nombre_archivo.replace('-', ' ').title()
+            
+            nombres_especiales = {
+                'cerro-navia': 'Cerro Navia',
+                'la-dehesa': 'La Dehesa',
+                'la-florida': 'La Florida',
+                'las-condes': 'Las Condes',
+                'lo-barnechea': 'Lo Barnechea',
+                'nunoa': 'Ñuñoa',
+                'santiago-centro': 'Santiago Centro'
+            }
+            comuna = nombres_especiales.get(nombre_archivo, comuna)
+            
+            coords = coordenadas.get(nombre_archivo, '-33.4500,-70.6667')
+            lat, lng = coords.split(',')
+            
+            mapa_html = f'''
+    <!-- ===== GOOGLE MAPS ===== -->
+    <section class="section-mapa" style="padding:40px 0; background:var(--color-dark);">
+      <div class="container">
+        <h2 class="section-title">¿Dónde estamos en {comuna}?</h2>
+        <p class="section-subtitle">Encuentranos fácilmente en {comuna}. ¡Llegamos en minutos!</p>
+        <div style="border-radius:20px; overflow:hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 2px solid rgba(56,189,248,0.2);">
+          <iframe 
+            src="https://www.google.com/maps?q={lat},{lng}&z=13&output=embed"
+            width="100%" 
+            height="400" 
+            style="border:0; display:block;"
+            allowfullscreen="" 
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa de {comuna}">
+          </iframe>
+        </div>
+        <p style="text-align:center; color:var(--color-text-muted); margin-top:12px; font-size:0.9rem;">
+          📍 Cobertura inmediata en todo {comuna} • Técnicos locales
+        </p>
+      </div>
+    </section>
+    '''
+            
+            contenido = contenido.replace(
+                '<section id="contacto" class="section-contacto">',
+                mapa_html + '\n\n  <section id="contacto" class="section-contacto">'
+            )
+            
+            with open(ruta, 'w', encoding='utf-8') as f:
+                f.write(contenido)
+            
+            print(f"✅ {ruta} mapa agregado")
+            
+        except Exception as e:
+            print(f"❌ Error en {ruta}: {e}")
+
+
+# ============================================================
+# 7. FUNCIÓN: Regenerar páginas con diseño de Vitacura
 # ============================================================
 
 def regenerar_paginas_problema():
     """Regenera TODAS las páginas con el diseño de Vitacura, respetando el contenido de cada comuna"""
     
-    # Usar Vitacura como plantilla base (diseño nuevo)
     plantilla_ruta = os.path.join(CARPETA_COMUNAS, 'vitacura.html')
     
     if not os.path.exists(plantilla_ruta):
@@ -148,7 +271,6 @@ def regenerar_paginas_problema():
             print("❌ No se encontró ninguna plantilla")
             return
     
-    # Lista de TODAS las comunas (excepto vitacura que es la plantilla)
     comunas_a_regenerar = [
         'cerro-navia', 'conchali', 'huechuraba', 'independencia',
         'la-dehesa', 'la-florida', 'las-condes', 'lo-barnechea',
@@ -157,7 +279,6 @@ def regenerar_paginas_problema():
         'santiago-centro'
     ]
     
-    # Mapeo de nombres especiales
     nombres_especiales = {
         'nunoa': 'Ñuñoa',
         'santiago-centro': 'Santiago Centro',
@@ -175,23 +296,18 @@ def regenerar_paginas_problema():
         for comuna in comunas_a_regenerar:
             ruta = os.path.join(CARPETA_COMUNAS, f'{comuna}.html')
             
-            # Obtener nombre legible
             nombre_comuna = nombres_especiales.get(comuna, comuna.replace('-', ' ').title())
             
-            # Leer contenido actual para extraer información
             if os.path.exists(ruta):
                 with open(ruta, 'r', encoding='utf-8') as f:
                     contenido_actual = f.read()
                 
-                # Extraer título
                 match = re.search(r'<title>(.*?)</title>', contenido_actual)
                 titulo = match.group(1) if match else f'Destape en {nombre_comuna}'
                 
-                # Extraer H1
                 match_h1 = re.search(r'<h1 class="hero-title">(.*?)</h1>', contenido_actual)
                 hero_text = match_h1.group(1) if match_h1 else f'Destape urgente en {nombre_comuna}'
                 
-                # Extraer meta description
                 match_desc = re.search(r'<meta name="description" content="(.*?)">', contenido_actual)
                 meta_desc = match_desc.group(1) if match_desc else f'Destape urgente en {nombre_comuna}. Técnicos 24/7.'
             else:
@@ -199,31 +315,12 @@ def regenerar_paginas_problema():
                 hero_text = f'Destape urgente en {nombre_comuna}'
                 meta_desc = f'Destape urgente en {nombre_comuna}. Técnicos 24/7.'
             
-            # Crear nuevo contenido basado en plantilla
             nuevo_contenido = plantilla
             
-            # Reemplazar título
-            nuevo_contenido = re.sub(
-                r'<title>.*?</title>',
-                f'<title>{titulo}</title>',
-                nuevo_contenido
-            )
+            nuevo_contenido = re.sub(r'<title>.*?</title>', f'<title>{titulo}</title>', nuevo_contenido)
+            nuevo_contenido = re.sub(r'<h1 class="hero-title">.*?</h1>', f'<h1 class="hero-title">{hero_text}</h1>', nuevo_contenido)
+            nuevo_contenido = re.sub(r'<meta name="description" content=".*?">', f'<meta name="description" content="{meta_desc}">', nuevo_contenido)
             
-            # Reemplazar H1
-            nuevo_contenido = re.sub(
-                r'<h1 class="hero-title">.*?</h1>',
-                f'<h1 class="hero-title">{hero_text}</h1>',
-                nuevo_contenido
-            )
-            
-            # Reemplazar meta description
-            nuevo_contenido = re.sub(
-                r'<meta name="description" content=".*?">',
-                f'<meta name="description" content="{meta_desc}">',
-                nuevo_contenido
-            )
-            
-            # Reemplazar el nombre en el logo (texto "Vitacura" por la comuna)
             nuevo_contenido = nuevo_contenido.replace(
                 'Destapes <span>Vitacura 24H</span>',
                 f'Destapes <span>{nombre_comuna} 24H</span>'
@@ -232,26 +329,15 @@ def regenerar_paginas_problema():
                 'Destapes Vitacura 24H',
                 f'Destapes {nombre_comuna} 24H'
             )
-            
-            # Reemplazar en el texto del hero
             nuevo_contenido = nuevo_contenido.replace(
                 'Destape urgente en Vitacura',
                 f'Destape urgente en {nombre_comuna}'
             )
-            
-            # Reemplazar en el título de servicios
             nuevo_contenido = nuevo_contenido.replace(
                 'Nuestros servicios en Vitacura',
                 f'Nuestros servicios en {nombre_comuna}'
             )
             
-            # Reemplazar en la cobertura
-            nuevo_contenido = nuevo_contenido.replace(
-                'atendemos cerca de ti',
-                'atendemos cerca de ti'
-            )
-            
-            # Guardar
             with open(ruta, 'w', encoding='utf-8') as f:
                 f.write(nuevo_contenido)
             
@@ -262,37 +348,7 @@ def regenerar_paginas_problema():
 
 
 # ============================================================
-# 6. FUNCIÓN: Corregir caracteres en todas las páginas
-# ============================================================
-
-def corregir_caracteres_todas():
-    """Corrige caracteres raros en todas las páginas de comunas"""
-    archivos = [f for f in os.listdir(CARPETA_COMUNAS) if f.endswith('.html')]
-    
-    for archivo in archivos:
-        ruta = os.path.join(CARPETA_COMUNAS, archivo)
-        try:
-            contenido, cod = leer_con_codificacion_fallback(ruta)
-            
-            # ===== REEMPLAZAR SIGNOS DE INTERROGACIÓN Y CARACTERES ROTOS =====
-            contenido = contenido.replace('�', '')
-            contenido = contenido.replace('??', '')
-            contenido = contenido.replace('��', '')
-            contenido = contenido.replace('��', '')
-            contenido = contenido.replace('?', '')   # <--- ELIMINA TODOS LOS "?"
-            contenido = contenido.replace('�', '')
-            
-            # Guardar en UTF-8
-            with open(ruta, 'w', encoding='utf-8') as f:
-                f.write(contenido)
-            
-            print(f"✅ {ruta} caracteres corregidos")
-        except Exception as e:
-            print(f"❌ Error en {ruta}: {e}")
-
-
-# ============================================================
-# 7. FUNCIÓN PRINCIPAL
+# 8. FUNCIÓN PRINCIPAL
 # ============================================================
 
 def main():
@@ -300,19 +356,23 @@ def main():
     print("🔧 ACTUALIZANDO SITIO COMPLETO")
     print("=" * 50)
     
-    # PASO 1: Corregir enlaces en index.html
+    # PASO 1: Regenerar páginas con diseño de Vitacura
+    print("\n🔄 Regenerando páginas con diseño de Vitacura...")
+    regenerar_paginas_problema()
+    
+    # PASO 2: Corregir enlaces en index.html
     print("\n📄 Corrigiendo enlaces en index.html...")
     corregir_todos_enlaces_index()
     
-    # PASO 2: Corregir caracteres en todas las páginas
+    # PASO 3: Corregir caracteres en todas las páginas
     print("\n🔤 Corrigiendo caracteres raros en todas las páginas...")
     corregir_caracteres_todas()
     
-    # PASO 3: Regenerar páginas con problemas
-    print("\n🔄 Regenerando páginas con problemas...")
-    regenerar_paginas_problema()
+    # PASO 4: Agregar Google Maps
+    print("\n🗺️ Agregando Google Maps a todas las comunas...")
+    agregar_maps_todas()
     
-    # PASO 4: Actualizar páginas de comunas
+    # PASO 5: Actualizar páginas de comunas (footer)
     if not os.path.exists(CARPETA_COMUNAS):
         print(f"\n❌ Carpeta '{CARPETA_COMUNAS}' no encontrada")
         return
@@ -336,17 +396,14 @@ def main():
     print(f"\n✅ {actualizados} páginas de comunas actualizadas correctamente")
     print("✅ index.html con enlaces corregidos")
     print("✅ Caracteres raros eliminados")
-    print("✅ Páginas con problemas regeneradas")
+    print("✅ Google Maps agregado a todas las comunas")
+    print("✅ Todas las páginas con diseño de Vitacura")
     print("\n🎯 ¡TODO LISTO! Sube los cambios a GitHub.")
 
 
 # ============================================================
-# 8. EJECUTAR
-# ============================================================
-
-# ============================================================
-# 8. EJECUTAR (REGEBERAR PÁGINAS CON DISEÑO DE VITACURA)
+# 9. EJECUTAR
 # ============================================================
 
 if __name__ == "__main__":
-    regenerar_paginas_problema()
+    main()
