@@ -1,138 +1,264 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Política de Privacidad | Destapes Santiago 24H</title>
-  <meta name="description" content="Política de privacidad de Destapes Santiago 24H. Destapes, gasfitería, albañilería y especialistas en cámaras." />
-  <link rel="icon" href="favicon.ico" />
+  <meta name="description" content="Política de privacidad de Destapes Santiago 24H. Destape, gasfitería y servicios de urgencia en Santiago.">
+  <meta property="og:title" content="Política de Privacidad | Destapes Santiago 24H">
+  <meta property="og:description" content="Política de privacidad de Destapes Santiago 24H.">
+  <meta property="og:url" content="https://destapesantiago24h.cl/politica-de-privacidad.html">
   <style>
+    /* ========== ESTILOS BASE (heredados de index) ========== */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: #f1f5f9;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f8fafc;
       color: #0f172a;
-      line-height: 1.7;
+      min-height: 100vh;
+      scroll-behavior: smooth;
     }
-
-    .topbar {
-      background: linear-gradient(135deg, #1e293b, #0f172a);
-      color: #e2e8f0;
-      padding: 12px 24px;
-      border-bottom: 3px solid #3b82f6;
+    h1, h2, h3, .logo-text {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
-    .topbar-inner {
-      max-width: 1100px;
+    .container {
+      max-width: 1280px;
       margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: 0.9rem;
-    }
-    .topbar-inner strong {
-      color: #ffffff;
-      font-weight: 700;
-    }
-    .topbar-badge {
-      background: rgba(59, 130, 246, 0.25);
-      padding: 4px 16px;
-      border-radius: 40px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #93c5fd;
-      letter-spacing: 0.3px;
-    }
-
-    header {
-      background: #ffffff;
-      padding: 16px 24px;
-      border-bottom: 1px solid #e2e8f0;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-    }
-    .nav {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .brand {
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: #0f172a;
-      text-decoration: none;
-      letter-spacing: -0.3px;
-    }
-    .brand span {
-      color: #2563eb;
-    }
-    .brand small {
-      display: block;
-      font-size: 0.6rem;
-      font-weight: 400;
-      color: #94a3b8;
-      letter-spacing: 0.5px;
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-    .nav-links a {
-      color: #475569;
-      text-decoration: none;
-      padding: 6px 14px;
-      border-radius: 40px;
-      font-size: 0.9rem;
-      transition: all 0.2s;
-      font-weight: 500;
-    }
-    .nav-links a:hover {
-      background: #f1f5f9;
-      color: #2563eb;
-    }
-    .nav-links a.active {
-      background: #eff6ff;
-      color: #2563eb;
-    }
-    .nav-links .btn-cta {
-      background: #2563eb;
-      color: #fff !important;
-      padding: 6px 18px;
-      border-radius: 40px;
-      font-weight: 600;
-    }
-    .nav-links .btn-cta:hover {
-      background: #1d4ed8;
-    }
-
-    main {
-      max-width: 1000px;
-      margin: 40px auto;
       padding: 0 24px;
     }
 
-    .card {
-      background: #ffffff;
-      border-radius: 32px;
-      padding: 48px 56px;
-      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.06);
-      border: 1px solid #eef2f6;
+    /* ===== URGENCY STRIP ===== */
+    .urgency-strip {
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      color: white;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.18);
+    }
+    .urgency-strip-inner {
+      display: grid;
+      grid-template-columns: minmax(240px, auto) auto;
+      grid-template-rows: auto auto;
+      gap: 14px 18px;
+      align-items: center;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+    .urgency-left {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+    .urgency-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #ffffff;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+    .urgency-benefits-left,
+    .urgency-benefits-right {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      min-width: 0;
+    }
+    .urgency-benefits-left {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+    .urgency-benefits-right {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      justify-content: flex-end;
+    }
+    .urgency-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #f8fafc;
+      transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+      white-space: nowrap;
+    }
+    .urgency-badge:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.22);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+    .urgency-action {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+    }
+    .urgency-call {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      background: white;
+      color: #1d4ed8;
+      text-decoration: none;
+      font-weight: 800;
+      border: 1px solid rgba(255,255,255,0.35);
+      box-shadow: 0 16px 38px rgba(15, 23, 42, 0.16);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+    .urgency-call:hover {
+      transform: translateY(-2px);
+      background: #f8fafc;
+      color: #1d4ed8;
+      box-shadow: 0 22px 44px rgba(15, 23, 42, 0.18);
+    }
+    @media (min-width: 900px) {
+      .urgency-strip-inner {
+        grid-template-columns: minmax(220px, auto) 1fr auto;
+      }
+      .urgency-benefits {
+        justify-content: flex-start;
+      }
+    }
+    @media (max-width: 900px) {
+      .urgency-strip-inner {
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto;
+      }
+      .urgency-benefits {
+        grid-column: 1 / -1;
+        justify-content: flex-start;
+      }
+    }
+    @media (max-width: 680px) {
+      .urgency-strip {
+        padding: 10px 0;
+      }
+      .urgency-strip-inner {
+        grid-template-columns: 1fr auto;
+      }
+      .urgency-benefits {
+        display: none;
+      }
+      .urgency-pill {
+        padding: 10px 14px;
+        font-size: 0.95rem;
+      }
+      .urgency-call {
+        padding: 12px 18px;
+        font-size: 0.95rem;
+      }
     }
 
+    /* ===== HEADER ===== */
+    .site-header {
+      background: white;
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      z-index: 120;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: 0 22px 55px rgba(15, 23, 42, 0.08);
+      transition: transform 0.35s ease, background-color 0.35s ease;
+    }
+    .site-header.header-hidden {
+      transform: translateY(-120%);
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: #0f172a;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+    .brand-label {
+      margin: 0;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #2563eb;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+    .logo-text {
+      margin: 0;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #0f172a;
+      line-height: 1.1;
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .nav-menu a {
+      text-decoration: none;
+      color: #475569;
+      font-weight: 600;
+      transition: color 0.25s ease, transform 0.25s ease;
+      font-size: 1rem;
+    }
+    .nav-menu a:hover {
+      color: #2563eb;
+      transform: translateY(-1px);
+    }
+    .btn-ws-header {
+      background: #25d366;
+      color: #0f172a !important;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      box-shadow: 0 14px 30px rgba(37, 211, 102, 0.18);
+    }
+    .btn-ws-header:hover {
+      background: #1fd55b;
+      transform: translateY(-1px);
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    .page-content {
+      padding: 60px 0 80px;
+    }
+    .page-card {
+      background: white;
+      border-radius: 32px;
+      padding: 48px 56px;
+      box-shadow: 0 30px 80px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
     .page-tag {
       display: inline-block;
       background: #dbeafe;
@@ -145,24 +271,19 @@
       border-radius: 40px;
       margin-bottom: 16px;
     }
-
-    h1 {
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
+    .page-title {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
       font-weight: 800;
       line-height: 1.1;
-      letter-spacing: -0.5px;
       color: #0f172a;
       margin-bottom: 6px;
     }
-
-    .subtitle {
+    .page-subtitle {
       color: #64748b;
       font-size: 1.1rem;
-      font-weight: 400;
       margin-bottom: 4px;
     }
-
-    .date {
+    .page-date {
       color: #94a3b8;
       font-size: 0.85rem;
       margin-bottom: 32px;
@@ -173,7 +294,7 @@
       gap: 12px;
       flex-wrap: wrap;
     }
-    .date .badge-updated {
+    .page-date .badge-updated {
       background: #f1f5f9;
       padding: 2px 14px;
       border-radius: 40px;
@@ -181,8 +302,7 @@
       font-weight: 600;
       color: #475569;
     }
-
-    h2 {
+    .page-card h2 {
       font-size: 1.35rem;
       font-weight: 700;
       margin-top: 40px;
@@ -192,35 +312,33 @@
       align-items: center;
       gap: 10px;
     }
-    h2 .icon {
+    .page-card h2 .icon {
       font-size: 1.2rem;
     }
-
-    p {
+    .page-card p {
       color: #334155;
       margin-bottom: 16px;
+      line-height: 1.8;
     }
-
-    ul {
+    .page-card ul {
       padding-left: 24px;
       margin-bottom: 20px;
       color: #334155;
     }
-    ul li {
+    .page-card ul li {
       margin-bottom: 6px;
+      line-height: 1.7;
     }
-
-    a {
+    .page-card a {
       color: #2563eb;
       text-decoration: none;
       font-weight: 500;
       transition: color 0.2s;
     }
-    a:hover {
+    .page-card a:hover {
       color: #1d4ed8;
       text-decoration: underline;
     }
-
     .box-blue {
       background: #eff6ff;
       border-left: 5px solid #2563eb;
@@ -236,7 +354,6 @@
     .box-blue ul {
       margin-bottom: 0;
     }
-
     .box-green {
       background: #f0fdf4;
       border-left: 5px solid #22c55e;
@@ -249,7 +366,6 @@
       display: block;
       margin-bottom: 6px;
     }
-
     .contact-box {
       background: #f8fafc;
       border: 2px dashed #cbd5e1;
@@ -276,214 +392,447 @@
       color: #2563eb;
     }
 
-    footer {
-      max-width: 1000px;
-      margin: 0 auto 40px;
-      padding: 24px 24px 0;
-      color: #94a3b8;
-      font-size: 0.85rem;
-      text-align: center;
-      border-top: 1px solid #e2e8f0;
+    /* ===== FOOTER (premium) ===== */
+    .premium-footer {
+      background: #f8fafc;
+      color: #0f172a;
+      padding: 48px 0 20px;
     }
-    footer a {
+    .premium-footer .footer-cta-block {
+      display: grid;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .premium-footer .footer-cta-card {
+      background: white;
+      border-radius: 24px;
+      padding: 30px 28px;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+      display: grid;
+      gap: 22px;
+    }
+    .premium-footer .footer-eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: #2563eb;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+    }
+    .premium-footer h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+    .premium-footer .footer-cta-card p {
+      margin: 0;
+      color: #475569;
+      line-height: 1.75;
+      font-size: 1rem;
+    }
+    .premium-footer .footer-cta-actions {
+      display: grid;
+      gap: 14px;
+    }
+    .premium-footer .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 16px 22px;
+      border-radius: 16px;
+      font-weight: 700;
+      border: none;
+      text-decoration: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+      box-shadow: 0 18px 30px rgba(37, 99, 235, 0.16);
+    }
+    .premium-footer .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 24px 40px rgba(37, 99, 235, 0.18);
+    }
+    .premium-footer .btn-primary {
+      background: #2563eb;
+      color: white;
+    }
+    .premium-footer .btn-secondary {
+      background: #25d366;
+      color: #0f172a;
+    }
+    .premium-footer .benefit-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .premium-footer .benefit-card {
+      background: white;
+      border-radius: 20px;
+      padding: 18px 20px;
+      color: #0f172a;
+      font-weight: 600;
+      box-shadow: 0 16px 30px rgba(15, 23, 42, 0.06);
+      border: 1px solid rgba(15, 23, 42, 0.06);
+    }
+    .premium-footer-body {
+      display: grid;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .premium-footer .footer-panel {
+      background: white;
+      border-radius: 20px;
+      padding: 28px 24px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+      border: 1px solid rgba(15, 23, 42, 0.06);
+    }
+    .premium-footer .footer-panel h3,
+    .premium-footer .footer-panel h4 {
+      margin-bottom: 18px;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+    }
+    .premium-footer .footer-panel p {
+      margin: 0;
+      color: #475569;
+      line-height: 1.85;
+    }
+    .premium-footer .footer-panel ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .premium-footer .footer-panel li {
+      color: #475569;
+      line-height: 1.75;
+    }
+    .premium-footer .footer-panel a {
+      color: #0f172a;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .premium-footer .footer-panel a:hover {
+      color: #2563eb;
+      text-decoration: underline;
+    }
+    .footer-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 16px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(15, 23, 42, 0.08);
       color: #64748b;
-      font-weight: 500;
+      font-size: 0.95rem;
     }
-    footer a:hover {
+    .footer-legal-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: center;
+      align-items: center;
+    }
+    .footer-legal-links a {
+      color: #475569;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-legal-links a:hover {
       color: #2563eb;
     }
-    footer .footer-divider {
-      margin: 0 8px;
-      color: #cbd5e1;
+    @media (min-width: 720px) {
+      .premium-footer .footer-cta-card {
+        grid-template-columns: 1.5fr 1fr;
+        align-items: center;
+      }
+      .premium-footer .footer-cta-actions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .premium-footer .benefit-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+      .premium-footer-body {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
-    footer .footer-small {
-      margin-top: 8px;
-      font-size: 0.75rem;
-      color: #94a3b8;
+    @media (min-width: 1080px) {
+      .premium-footer-body {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+      .premium-footer .footer-cta-card {
+        padding: 36px 34px;
+      }
     }
-
-    @media (max-width: 768px) {
-      .card {
+    @media (max-width: 800px) {
+      .page-card {
         padding: 28px 20px;
         border-radius: 20px;
       }
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
+      .nav-menu {
+        gap: 16px;
+        justify-content: center;
       }
-      .nav-links {
-        width: 100%;
-        justify-content: flex-start;
+    }
+    @media (max-width: 480px) {
+      .page-card {
+        padding: 20px 16px;
       }
-      .topbar-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      h1 {
-        font-size: 2rem;
+      .nav-menu a {
+        font-size: 0.85rem;
+        padding: 4px 8px;
       }
       .contact-box {
         flex-direction: column;
         align-items: flex-start;
       }
     }
-
-    @media (max-width: 480px) {
-      .card {
-        padding: 20px 16px;
-      }
-      .nav-links a {
-        padding: 4px 10px;
-        font-size: 0.8rem;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <div class="topbar">
-    <div class="topbar-inner">
-      <span><strong>🚨 Destapes Santiago 24H</strong> · Destapes · Gasfitería · Albañilería · Especialistas en Cámaras</span>
-      <span class="topbar-badge">📞 Atención 24/7 · +56 9 7209 1240</span>
+  <!-- ===== URGENCY STRIP ===== -->
+  <div class="urgency-strip">
+    <div class="container urgency-strip-inner">
+      <div class="urgency-left">
+        <span class="urgency-pill">🚨 Destapes Santiago 24H</span>
+      </div>
+      <div class="urgency-action">
+        <a href="tel:+56963571251" class="urgency-call">📞 Llamar ahora</a>
+      </div>
+      <div class="urgency-benefits-left">
+        <span class="urgency-badge">✅ Técnicos certificados</span>
+        <span class="urgency-badge">⚡ Llegada rápida</span>
+        <span class="urgency-badge">🔧 Garantía</span>
+      </div>
+      <div class="urgency-benefits-right">
+        <span class="urgency-badge">📞 +56 9 6357 1251</span>
+      </div>
     </div>
   </div>
 
-  <header>
-    <nav class="nav">
-      <a class="brand" href="https://destapesantiago24h.cl/">
-        Destapes <span>Santiago 24H</span>
-        <small>Servicios profesionales · 24 horas</small>
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/" class="brand">
+        <img src="activos/logo.jpg" alt="Destapes Santiago 24H" class="logo-img">
+        <div>
+          <p class="brand-label">Destapes</p>
+          <h1 class="logo-text">Santiago 24H</h1>
+        </div>
       </a>
-      <div class="nav-links">
-        <a href="https://destapesantiago24h.cl/">Inicio</a>
-        <a href="https://destapesantiago24h.cl/politica-de-privacidad.html" class="active">Privacidad</a>
-        <a href="https://destapesantiago24h.cl/terminos-y-condiciones.html">Términos</a>
-        <a href="tel:+56972091240" class="btn-cta">📞 Llamar ahora</a>
-      </div>
-    </nav>
+      <nav class="nav-menu" aria-label="Menú principal">
+        <a href="index.html">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#proceso">Cómo funciona</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#cobertura">Cobertura</a>
+        <a class="btn-ws-header" href="https://wa.me/56972091242?text=Hola%2C%20necesito%20un%20destape%20urgente%20en%20Santiago" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <article class="card">
+  <!-- ===== MAIN CONTENT ===== -->
+  <section class="page-content">
+    <div class="container">
+      <article class="page-card">
 
-      <span class="page-tag">🔒 Política de Privacidad</span>
-      <div class="subtitle">Destapes Santiago 24H</div>
-      <h1>Política de Privacidad</h1>
+        <span class="page-tag">🔒 Política de Privacidad</span>
+        <div class="page-subtitle">Destapes Santiago 24H</div>
+        <h1 class="page-title">Política de Privacidad</h1>
 
-      <div class="date">
-        <span>📅 Última actualización: <strong>16 de agosto de 2026</strong></span>
-        <span class="badge-updated">✅ Versión 2.0</span>
-      </div>
+        <div class="page-date">
+          <span>📅 Última actualización: <strong>16 de agosto de 2026</strong></span>
+          <span class="badge-updated">✅ Versión 2.0</span>
+        </div>
 
-      <p>
-        En <strong>Destapes Santiago 24H</strong> nos comprometemos a tratar la información personal de nuestros clientes y usuarios con total responsabilidad, transparencia y respeto. Esta política explica qué información recopilamos, cómo la utilizamos y cómo la protegemos.
-      </p>
+        <p>
+          En <strong>Destapes Santiago 24H</strong> nos comprometemos a tratar la información personal de nuestros clientes y usuarios con total responsabilidad, transparencia y respeto. Esta política explica qué información recopilamos, cómo la utilizamos y cómo la protegemos.
+        </p>
 
-      <div class="contact-box">
-        <span class="label">📩 Contacto:</span>
-        <a href="mailto:emergencias@destapesantiago24h.cl" class="email">emergencias@destapesantiago24h.cl</a>
-        <span style="color:#94a3b8;">|</span>
-        <a href="tel:+56972091240" class="phone">📞 +56 9 7209 1240</a>
-        <span style="color:#94a3b8;font-size:0.85rem;">(disponible 24/7)</span>
-      </div>
+        <div class="contact-box">
+          <span class="label">📩 Contacto:</span>
+          <a href="mailto:emergencias@destapesantiago24h.cl" class="email">emergencias@destapesantiago24h.cl</a>
+          <span style="color:#94a3b8;">|</span>
+          <a href="tel:+56963571251" class="phone">📞 +56 9 6357 1251</a>
+          <span style="color:#94a3b8;font-size:0.85rem;">(disponible 24/7)</span>
+        </div>
 
-      <h2><span class="icon">📍</span> 1. Responsable y contacto</h2>
-      <p>
-        El responsable del tratamiento de tus datos personales es <strong>Destapes Santiago 24H</strong>. Para cualquier consulta relacionada con privacidad, datos personales o el uso de nuestros servicios, puedes contactarnos a través de:
-      </p>
-      <ul>
-        <li><strong>Correo electrónico:</strong> <a href="mailto:emergencias@destapesantiago24h.cl">emergencias@destapesantiago24h.cl</a></li>
-        <li><strong>Teléfono:</strong> <a href="tel:+56972091240">+56 9 7209 1240</a> (disponible 24/7)</li>
-      </ul>
-
-      <h2><span class="icon">🔧</span> 2. Nuestros servicios</h2>
-      <p>Ofrecemos servicios profesionales para el hogar, comercio e industria:</p>
-      <ul>
-        <li><strong>Destapaciones:</strong> Desagües, cañerías, alcantarillado, limpieza con equipos de alta presión, fosas sépticas.</li>
-        <li><strong>Gasfitería:</strong> Instalación, reparación y mantenimiento de sistemas de agua potable, calefont, termas, grifería, cañerías de cobre y PVC.</li>
-        <li><strong>Albañilería de urbanización:</strong> Pavimentos, veredas, soleras, cierres perimetrales, muros de contención, obras exteriores.</li>
-        <li><strong>Especialistas en cámaras y tuberías:</strong> Inspección con cámara de alcantarillado, detección de fisuras, limpieza profunda, reparación y rehabilitación de tuberías.</li>
-      </ul>
-
-      <h2><span class="icon">📋</span> 3. Información que recopilamos</h2>
-      <ul>
-        <li><strong>Datos de contacto:</strong> Nombre, teléfono, correo electrónico y dirección.</li>
-        <li><strong>Información de solicitudes:</strong> Detalles sobre el servicio requerido, cotizaciones, consultas y comunicaciones.</li>
-        <li><strong>Datos técnicos:</strong> Medidas, materiales, fotografías del lugar, tipo de trabajo.</li>
-        <li><strong>Datos del sitio web:</strong> Información técnica anónima para mejorar nuestra página.</li>
-      </ul>
-
-      <h2><span class="icon">☁️</span> 4. Uso de Google Workspace</h2>
-      <p>
-        Destapes Santiago 24H utiliza <strong>Google Workspace</strong> como parte de su operación interna para ofrecer un servicio más eficiente y organizado. La autorización se realiza mediante <strong>OAuth</strong>, lo que garantiza que solo accedemos a los permisos que el usuario autoriza.
-      </p>
-
-      <div class="box-blue">
-        <strong>📊 ¿Qué herramientas de Google Workspace utilizamos?</strong>
+        <h2><span class="icon">📍</span> 1. Responsable y contacto</h2>
+        <p>
+          El responsable del tratamiento de tus datos personales es <strong>Destapes Santiago 24H</strong>. Para cualquier consulta relacionada con privacidad, datos personales o el uso de nuestros servicios, puedes contactarnos a través de:
+        </p>
         <ul>
-          <li><strong>Gmail:</strong> Comunicación con clientes y gestión de correos.</li>
-          <li><strong>Calendar:</strong> Programación de visitas técnicas y coordinación de agenda.</li>
-          <li><strong>Drive:</strong> Almacenamiento y organización de cotizaciones, documentos y fotografías.</li>
-          <li><strong>Sheets:</strong> Seguimiento de proyectos, control de inventario y métricas.</li>
-          <li><strong>Docs:</strong> Creación de presupuestos, informes y propuestas.</li>
-          <li><strong>Contacts:</strong> Gestión de clientes y proveedores.</li>
+          <li><strong>Correo electrónico:</strong> <a href="mailto:emergencias@destapesantiago24h.cl">emergencias@destapesantiago24h.cl</a></li>
+          <li><strong>Teléfono:</strong> <a href="tel:+56963571251">+56 9 6357 1251</a> (disponible 24/7)</li>
         </ul>
-        <p style="margin-top:8px;font-size:0.9rem;color:#1e40af;">
-          ✅ Los datos de Google se utilizan <strong>exclusivamente</strong> para operar nuestro negocio y atender a nuestros clientes. No los utilizamos para publicidad, venta de datos ni fines no autorizados.
+
+        <h2><span class="icon">🔧</span> 2. Nuestros servicios</h2>
+        <p>Ofrecemos servicios profesionales para el hogar, comercio e industria:</p>
+        <ul>
+          <li><strong>Destapaciones:</strong> Desagües, cañerías, alcantarillado, limpieza con equipos de alta presión, fosas sépticas.</li>
+          <li><strong>Gasfitería:</strong> Instalación, reparación y mantenimiento de sistemas de agua potable, calefont, termas, grifería, cañerías de cobre y PVC.</li>
+          <li><strong>Albañilería de urbanización:</strong> Pavimentos, veredas, soleras, cierres perimetrales, muros de contención, obras exteriores.</li>
+          <li><strong>Especialistas en cámaras y tuberías:</strong> Inspección con cámara de alcantarillado, detección de fisuras, limpieza profunda, reparación y rehabilitación de tuberías.</li>
+        </ul>
+
+        <h2><span class="icon">📋</span> 3. Información que recopilamos</h2>
+        <ul>
+          <li><strong>Datos de contacto:</strong> Nombre, teléfono, correo electrónico y dirección.</li>
+          <li><strong>Información de solicitudes:</strong> Detalles sobre el servicio requerido, cotizaciones, consultas y comunicaciones.</li>
+          <li><strong>Datos técnicos:</strong> Medidas, materiales, fotografías del lugar, tipo de trabajo.</li>
+          <li><strong>Datos del sitio web:</strong> Información técnica anónima para mejorar nuestra página.</li>
+        </ul>
+
+        <h2><span class="icon">☁️</span> 4. Uso de Google Workspace</h2>
+        <p>
+          Destapes Santiago 24H utiliza <strong>Google Workspace</strong> como parte de su operación interna para ofrecer un servicio más eficiente y organizado. La autorización se realiza mediante <strong>OAuth</strong>, lo que garantiza que solo accedemos a los permisos que el usuario autoriza.
         </p>
+
+        <div class="box-blue">
+          <strong>📊 ¿Qué herramientas de Google Workspace utilizamos?</strong>
+          <ul>
+            <li><strong>Gmail:</strong> Comunicación con clientes y gestión de correos.</li>
+            <li><strong>Calendar:</strong> Programación de visitas técnicas y coordinación de agenda.</li>
+            <li><strong>Drive:</strong> Almacenamiento y organización de cotizaciones, documentos y fotografías.</li>
+            <li><strong>Sheets:</strong> Seguimiento de proyectos, control de inventario y métricas.</li>
+            <li><strong>Docs:</strong> Creación de presupuestos, informes y propuestas.</li>
+            <li><strong>Contacts:</strong> Gestión de clientes y proveedores.</li>
+          </ul>
+          <p style="margin-top:8px;font-size:0.9rem;color:#1e40af;">
+            ✅ Los datos de Google se utilizan <strong>exclusivamente</strong> para operar nuestro negocio y atender a nuestros clientes. No los utilizamos para publicidad, venta de datos ni fines no autorizados.
+          </p>
+        </div>
+
+        <h2><span class="icon">🔐</span> 5. Seguridad y protección</h2>
+        <p>
+          Aplicamos medidas de seguridad razonables para proteger tu información contra acceso no autorizado, modificación, divulgación o destrucción. Las credenciales OAuth se almacenan de forma segura en nuestro entorno de trabajo.
+        </p>
+
+        <h2><span class="icon">⏳</span> 6. Conservación de datos</h2>
+        <p>
+          Conservamos tu información durante el tiempo necesario para prestar los servicios, mantener registros operativos, resolver consultas y cumplir con obligaciones legales. Cuando la información ya no es necesaria, la eliminamos o anonimizamos de forma segura.
+        </p>
+
+        <h2><span class="icon">📌</span> 7. Tus derechos</h2>
+        <p>
+          Como usuario, tienes derecho a:
+        </p>
+        <ul>
+          <li><strong>Acceder</strong> a tus datos personales.</li>
+          <li><strong>Rectificar</strong> información incorrecta.</li>
+          <li><strong>Cancelar</strong> o solicitar la eliminación de tus datos.</li>
+          <li><strong>Oponerte</strong> al uso de tus datos para fines específicos.</li>
+        </ul>
+        <p>
+          Para ejercer estos derechos, escríbenos a <a href="mailto:emergencias@destapesantiago24h.cl">emergencias@destapesantiago24h.cl</a> con el asunto "Derechos ARCO".
+        </p>
+
+        <div class="box-green">
+          <strong>✅ Compromiso de transparencia</strong>
+          <p style="margin-bottom:0;font-size:0.95rem;">
+            En Destapes Santiago 24H nos comprometemos a mantenerte informado sobre el uso de tus datos. Esta política se actualiza periódicamente y siempre está disponible en nuestro sitio web.
+          </p>
+        </div>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer premium-footer">
+    <div class="container footer-cta-block">
+      <div class="footer-cta-card">
+        <div class="footer-cta-copy">
+          <p class="footer-eyebrow">Atención urgente</p>
+          <h2>¿Necesitas un Destape Urgente en Santiago?</h2>
+          <p>Atención 24/7 · Técnicos certificados · Llegamos en menos de 30 minutos</p>
+        </div>
+        <div class="footer-cta-actions">
+          <a class="btn btn-primary" href="tel:+56963571251" aria-label="Llamar ahora">📞 Llamar Ahora</a>
+          <a class="btn btn-secondary" href="https://wa.me/56972091242?text=Hola%2C%20necesito%20un%20destape%20urgente%20en%20Santiago" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp">💬 WhatsApp</a>
+        </div>
+      </div>
+      <div class="benefit-grid">
+        <div class="benefit-card">🏆 Más de 12 años de experiencia</div>
+        <div class="benefit-card">✅ Servicio 100% garantizado</div>
+        <div class="benefit-card">⏰ Atención de emergencia 24/7</div>
+        <div class="benefit-card">💰 15% de descuento en primera visita</div>
+      </div>
+    </div>
+
+    <div class="container premium-footer-body">
+      <div class="footer-panel company-panel">
+        <h3>Destapes Santiago 24H</h3>
+        <p>Somos especialistas en destape de alcantarillado, WC y emergencias de gasfitería en Santiago. Más de una década entregando soluciones rápidas, seguras y garantizadas.</p>
       </div>
 
-      <h2><span class="icon">🔐</span> 5. Seguridad y protección</h2>
-      <p>
-        Aplicamos medidas de seguridad razonables para proteger tu información contra acceso no autorizado, modificación, divulgación o destrucción. Las credenciales OAuth se almacenan de forma segura en nuestro entorno de trabajo.
-      </p>
-
-      <h2><span class="icon">⏳</span> 6. Conservación de datos</h2>
-      <p>
-        Conservamos tu información durante el tiempo necesario para prestar los servicios, mantener registros operativos, resolver consultas y cumplir con obligaciones legales. Cuando la información ya no es necesaria, la eliminamos o anonimizamos de forma segura.
-      </p>
-
-      <h2><span class="icon">📌</span> 7. Tus derechos</h2>
-      <p>
-        Como usuario, tienes derecho a:
-      </p>
-      <ul>
-        <li><strong>Acceder</strong> a tus datos personales.</li>
-        <li><strong>Rectificar</strong> información incorrecta.</li>
-        <li><strong>Cancelar</strong> o solicitar la eliminación de tus datos.</li>
-        <li><strong>Oponerte</strong> al uso de tus datos para fines específicos.</li>
-      </ul>
-      <p>
-        Para ejercer estos derechos, escríbenos a <a href="mailto:emergencias@destapesantiago24h.cl">emergencias@destapesantiago24h.cl</a> con el asunto "Derechos ARCO".
-      </p>
-
-      <div class="box-green">
-        <strong>✅ Compromiso de transparencia</strong>
-        <p style="margin-bottom:0;font-size:0.95rem;">
-          En Destapes Santiago 24H nos comprometemos a mantenerte informado sobre el uso de tus datos. Esta política se actualiza periódicamente y siempre está disponible en nuestro sitio web.
-        </p>
+      <div class="footer-panel contact-panel">
+        <h4>Contacto</h4>
+        <ul>
+          <li>📞 <a href="tel:+56963571251">+56 9 6357 1251</a></li>
+          <li>💬 <a href="https://wa.me/56972091242?text=Hola%2C%20necesito%20un%20destape%20urgente%20en%20Santiago" target="_blank" rel="noopener noreferrer">WhatsApp +56 9 7209 1242</a></li>
+          <li>✉️ <a href="mailto:emergencias@destapesantiago24h.cl">emergencias@destapesantiago24h.cl</a></li>
+          <li>⏰ Emergencias 24/7</li>
+        </ul>
       </div>
 
-    </article>
-  </main>
+      <div class="footer-panel services-panel">
+        <h4>Servicios</h4>
+        <ul>
+          <li>Destape de Alcantarillado</li>
+          <li>Destape de WC</li>
+          <li>Destape de Lavaplatos</li>
+          <li>Destape de Ducha</li>
+          <li>Gasfitería de Emergencia</li>
+          <li>Limpieza de Cámaras Sépticas</li>
+        </ul>
+      </div>
 
-  <footer>
-    <p>
-      <a href="https://destapesantiago24h.cl/">Inicio</a>
-      <span class="footer-divider">·</span>
-      <a href="https://destapesantiago24h.cl/politica-de-privacidad.html">Política de Privacidad</a>
-      <span class="footer-divider">·</span>
-      <a href="https://destapesantiago24h.cl/terminos-y-condiciones.html">Términos y Condiciones</a>
-    </p>
-    <p style="margin-top:8px;">
-      📧 <a href="mailto:emergencias@destapesantiago24h.cl">emergencias@destapesantiago24h.cl</a>
-      <span class="footer-divider">·</span>
-      📞 <a href="tel:+56972091240">+56 9 7209 1240</a>
-    </p>
-    <p class="footer-small">
-      © 2026 Destapes Santiago 24H · Todos los derechos reservados
-    </p>
+      <div class="footer-panel coverage-panel">
+        <h4>Enlaces legales</h4>
+        <ul>
+          <li><a href="politica-de-privacidad.html">🔒 Política de Privacidad</a></li>
+          <li><a href="terminos-y-condiciones.html">📋 Términos y Condiciones</a></li>
+          <li><a href="index.html">🏠 Inicio</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>© 2026 Destapes Santiago 24H. Todos los derechos reservados.</span>
+      <div class="footer-legal-links">
+        <a href="politica-de-privacidad.html">Política de Privacidad</a>
+        <a href="terminos-y-condiciones.html">Términos de Servicio</a>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    // Control de cabecera que sube y baja con scroll
+    let lastScrollY = window.scrollY;
+    const siteHeader = document.querySelector('.site-header');
+    if (siteHeader) {
+      window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY < 120) {
+          siteHeader.classList.remove('header-hidden');
+          return;
+        }
+        if (currentScrollY > lastScrollY) {
+          siteHeader.classList.add('header-hidden');
+        } else {
+          siteHeader.classList.remove('header-hidden');
+        }
+        lastScrollY = currentScrollY;
+      });
+    }
+  </script>
 
 </body>
 </html>
