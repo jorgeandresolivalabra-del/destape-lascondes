@@ -81,7 +81,7 @@ def actualizar_archivo(ruta):
         contenido = contenido.replace('�', '')
         contenido = contenido.replace('??', '')
         contenido = contenido.replace('��', '')
-        contenido = contenido.replace('?', '')   # Elimina signos de interrogación sueltos
+        contenido = contenido.replace('?', '')
         
         # Guardar en UTF-8
         with open(ruta, 'w', encoding='utf-8') as f:
@@ -256,7 +256,62 @@ def agregar_maps_todas():
 
 
 # ============================================================
-# 7. FUNCIÓN: Regenerar páginas con diseño de Vitacura
+# 7. FUNCIÓN: Actualizar WhatsApp flotante con mensaje dinámico
+# ============================================================
+
+def actualizar_whatsapp_flotante():
+    """Actualiza el botón flotante de WhatsApp con mensaje dinámico por comuna"""
+    
+    archivos = [f for f in os.listdir(CARPETA_COMUNAS) if f.endswith('.html')]
+    
+    for archivo in archivos:
+        ruta = os.path.join(CARPETA_COMUNAS, archivo)
+        try:
+            with open(ruta, 'r', encoding='utf-8') as f:
+                contenido = f.read()
+            
+            # Extraer nombre de comuna desde el archivo
+            nombre_base = os.path.splitext(archivo)[0]
+            comuna = nombre_base.replace('-', ' ').title()
+            
+            # Mapear nombres especiales
+            nombres_especiales = {
+                'cerro-navia': 'Cerro Navia',
+                'la-dehesa': 'La Dehesa',
+                'la-florida': 'La Florida',
+                'las-condes': 'Las Condes',
+                'lo-barnechea': 'Lo Barnechea',
+                'nunoa': 'Ñuñoa',
+                'santiago-centro': 'Santiago Centro'
+            }
+            comuna = nombres_especiales.get(nombre_base, comuna)
+            
+            # Mensaje dinámico
+            mensaje = f"Hola%2C%20necesito%20un%20destape%20urgente%20en%20{comuna}"
+            url_whatsapp = f"https://wa.me/56972091242?text={mensaje}"
+            
+            # Nuevo botón flotante
+            nuevo_boton = f'''<a href="{url_whatsapp}" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp urgente">💬</a>'''
+            
+            # Reemplazar el botón existente
+            contenido = re.sub(
+                r'<a href="https://wa\.me/56972091242\?text=[^"]*" class="whatsapp-float"[^>]*>.*?</a>',
+                nuevo_boton,
+                contenido,
+                flags=re.DOTALL
+            )
+            
+            with open(ruta, 'w', encoding='utf-8') as f:
+                f.write(contenido)
+            
+            print(f"✅ {ruta} WhatsApp dinámico actualizado → {comuna}")
+            
+        except Exception as e:
+            print(f"❌ Error en {ruta}: {e}")
+
+
+# ============================================================
+# 8. FUNCIÓN: Regenerar páginas con diseño de Vitacura
 # ============================================================
 
 def regenerar_paginas_problema():
@@ -348,7 +403,7 @@ def regenerar_paginas_problema():
 
 
 # ============================================================
-# 8. FUNCIÓN PRINCIPAL
+# 9. FUNCIÓN PRINCIPAL
 # ============================================================
 
 def main():
@@ -372,7 +427,11 @@ def main():
     print("\n🗺️ Agregando Google Maps a todas las comunas...")
     agregar_maps_todas()
     
-    # PASO 5: Actualizar páginas de comunas (footer)
+    # PASO 5: Actualizar WhatsApp flotante
+    print("\n💬 Actualizando WhatsApp flotante con mensaje dinámico...")
+    actualizar_whatsapp_flotante()
+    
+    # PASO 6: Actualizar páginas de comunas (footer)
     if not os.path.exists(CARPETA_COMUNAS):
         print(f"\n❌ Carpeta '{CARPETA_COMUNAS}' no encontrada")
         return
@@ -397,12 +456,13 @@ def main():
     print("✅ index.html con enlaces corregidos")
     print("✅ Caracteres raros eliminados")
     print("✅ Google Maps agregado a todas las comunas")
+    print("✅ WhatsApp flotante con mensaje dinámico")
     print("✅ Todas las páginas con diseño de Vitacura")
     print("\n🎯 ¡TODO LISTO! Sube los cambios a GitHub.")
 
 
 # ============================================================
-# 9. EJECUTAR
+# 10. EJECUTAR
 # ============================================================
 
 if __name__ == "__main__":
