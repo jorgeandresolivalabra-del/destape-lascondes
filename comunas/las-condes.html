@@ -5,14 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Destape Urgente 24h en Las Condes | +5,000 Clientes Satisfechos</title>
   
-  <!-- Estilos: definidos inline en <style> (tema oscuro, autónomo). styles.css se reserva para páginas de comunas. -->
   <link rel="canonical" href="https://www.destapesantiago24h.cl/comunas/las-condes.html">
   
-  <!-- Meta Description optimizada SEO local + CTR -->
   <meta name="description" content="✅ +5,000 clientes en Las Condes. Destape urgente de alcantarillado y WC en 60 min. Técnicos certificados 24/7. ¡15% DTO hoy! Llama: +56 9 6357 1251">
   <meta name="keywords" content="destape urgente las condes, destape alcantarillado las condes, destape wc las condes, destape cañerías las condes, técnicos destape 24h las condes, destape san carlos, destape el golf, destape los dominicos">
   
-  <!-- Open Graph + Twitter Cards optimizados para CTR -->
   <meta property="og:title" content="🚨 ¿Baño tapado? Llegamos en 60 min | +5,000 clientes en Las Condes">
   <meta property="og:description" content="✅ Solución inmediata 24/7 • Técnicos certificados • Sin romper cañerías • 15% descuento hoy. ¡Llama ahora!">
   <meta property="og:image" content="https://i.postimg.cc/4yxKLnCY/trabajador-y-su-camioneta.png">
@@ -20,7 +17,6 @@
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   
-  <!-- Schema.org LocalBusiness + Service para SEO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -75,9 +71,9 @@
   /></noscript>
   <!-- End Meta Pixel Code -->
 
- <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ===== VARIABLES CSS PARA FACIL EDICIÓN ===== */
+    /* ===== VARIABLES CSS ===== */
     :root {
       --color-primary: #38bdf8;
       --color-primary-dark: #0ea5e9;
@@ -94,7 +90,6 @@
       --color-gray-light: #64748b;
       --color-text: #e2e8f0;
       --color-text-muted: #94a3b8;
-      --color-light: #0d1626;
       --glow-blue: 0 0 24px rgba(56,189,248,0.25);
       --glow-amber: 0 0 24px rgba(251,191,36,0.25);
       --glow-green: 0 0 24px rgba(52,211,153,0.25);
@@ -126,7 +121,7 @@
       padding: 0 20px;
     }
 
-    /* ===== LIVE NOTIFICATION BAR (STICKY) ===== */
+    /* ===== LIVE NOTIFICATION BAR ===== */
     .live-bar {
       position: sticky;
       top: 0;
@@ -188,7 +183,7 @@
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--color-border);
       position: sticky;
-      top: 48px; /* After live bar */
+      top: 48px;
       z-index: 999;
       padding: 12px 0;
     }
@@ -196,6 +191,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
     }
     .logo-area {
       display: flex;
@@ -212,7 +209,7 @@
     .nav-menu {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 16px;
       flex-wrap: wrap;
     }
     .nav-menu a {
@@ -254,7 +251,7 @@
       transform: scale(1.02);
     }
 
-    /* ===== HERO SECTION CON PRUEBA SOCIAL ===== */
+    /* ===== HERO SECTION ===== */
     .hero-section {
       padding: 56px 0 72px;
       background: var(--color-dark);
@@ -314,7 +311,6 @@
     }
     .hero-subtitle strong { color: var(--color-text); }
     
-    /* Social Proof Badges Above CTA */
     .social-proof-badges {
       display: flex;
       align-items: center;
@@ -485,12 +481,6 @@
     }
 
     /* ===== SECCIONES GENERALES ===== */
-    .section-problemas, .section-servicios, .section-proceso, 
-    .section-beneficios, .section-testimonios, .section-cobertura, 
-    .section-casos, .section-dashboard, .section-comunas, 
-    .section-faq, .section-urgency, .cta-final {
-      padding: 70px 0;
-    }
     .section-title {
       text-align: center;
       font-family: 'Outfit', sans-serif;
@@ -507,10 +497,8 @@
       max-width: 650px;
       margin: 0 auto 40px;
     }
-    .section-subtitle strong { color: var(--color-text); }
 
-    /* ===== PROBLEMAS ===== */
-    .section-problemas { background: var(--color-surface); }
+    .section-problemas { background: var(--color-surface); padding: 70px 0; }
     .problemas-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -537,8 +525,7 @@
     }
     .problema-card span { font-size: 1.8rem; }
 
-    /* ===== SERVICIOS ===== */
-    .section-servicios { background: var(--color-dark); }
+    .section-servicios { background: var(--color-dark); padding: 70px 0; }
     .servicios-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -557,10 +544,7 @@
       border-color: rgba(56,189,248,0.3);
       box-shadow: var(--glow-blue), var(--shadow-lg);
     }
-    .servicio-icon {
-      font-size: 2.5rem;
-      margin-bottom: 16px;
-    }
+    .servicio-icon { font-size: 2.5rem; margin-bottom: 16px; }
     .servicio-card h3 {
       font-family: 'Outfit', sans-serif;
       font-size: 1.2rem;
@@ -615,8 +599,7 @@
       font-style: italic;
     }
 
-    /* ===== PROCESO ===== */
-    .section-proceso { background: var(--color-surface); }
+    .section-proceso { background: var(--color-surface); padding: 70px 0; }
     .pasos-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -629,7 +612,6 @@
       background: var(--color-surface-2);
       border: 1px solid var(--color-border);
       border-radius: var(--radius);
-      position: relative;
     }
     .paso-numero {
       width: 48px;
@@ -646,17 +628,9 @@
       margin: 0 auto 16px;
       box-shadow: var(--glow-blue);
     }
-    .paso-card h3 {
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: white;
-    }
-    .paso-card p {
-      color: var(--color-text-muted);
-      font-size: 0.92rem;
-    }
+    .paso-card h3 { font-weight: 700; margin-bottom: 10px; color: white; }
+    .paso-card p { color: var(--color-text-muted); font-size: 0.92rem; }
 
-    /* ===== BENEFICIOS ===== */
     .beneficios-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -687,10 +661,7 @@
       flex-shrink: 0;
     }
 
-    /* ===== CASE STUDIES CON PRUEBA SOCIAL DETALLADA ===== */
-    .section-casos {
-      background: var(--color-surface);
-    }
+    .section-casos { background: var(--color-surface); padding: 70px 0; }
     .casos-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -732,16 +703,8 @@
       object-fit: cover;
       border: 2px solid var(--color-success);
     }
-    .caso-info h4 {
-      font-weight: 700;
-      font-size: 1.05rem;
-      margin-bottom: 4px;
-      color: white;
-    }
-    .caso-info p {
-      color: var(--color-text-muted);
-      font-size: 0.88rem;
-    }
+    .caso-info h4 { font-weight: 700; font-size: 1.05rem; margin-bottom: 4px; color: white; }
+    .caso-info p { color: var(--color-text-muted); font-size: 0.88rem; }
     .verified-badge {
       display: inline-flex;
       align-items: center;
@@ -766,16 +729,8 @@
       border-radius: var(--radius);
     }
     .metric-item { text-align: center; }
-    .metric-label {
-      font-size: 0.8rem;
-      color: var(--color-text-muted);
-      margin-bottom: 4px;
-    }
-    .metric-value {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 800;
-      font-size: 1.1rem;
-    }
+    .metric-label { font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 4px; }
+    .metric-value { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.1rem; }
     .metric-value.before { color: var(--color-danger); }
     .metric-value.after { color: var(--color-success); }
     .caso-testimonio {
@@ -804,19 +759,9 @@
       font-size: 0.78rem;
       color: var(--color-text-muted);
     }
-    .caso-timestamp {
-      font-size: 0.78rem;
-      color: var(--color-gray-light);
-      margin-top: 12px;
-      text-align: right;
-    }
+    .caso-timestamp { font-size: 0.78rem; color: var(--color-gray-light); margin-top: 12px; text-align: right; }
 
-    /* ===== DASHBOARD EN TIEMPO REAL ===== */
-    .section-dashboard {
-      background: var(--color-dark);
-      position: relative;
-      overflow: hidden;
-    }
+    .section-dashboard { background: var(--color-dark); padding: 70px 0; position: relative; overflow: hidden; }
     .section-dashboard::before {
       content: '';
       position: absolute;
@@ -851,19 +796,10 @@
       margin: 8px 0;
       line-height: 1;
     }
-    .dashboard-label {
-      font-size: 0.88rem;
-      color: var(--color-text-muted);
-    }
-    .dashboard-update {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 0.85rem;
-      color: var(--color-text-muted);
-    }
+    .dashboard-label { font-size: 0.88rem; color: var(--color-text-muted); }
+    .dashboard-update { text-align: center; margin-top: 20px; font-size: 0.85rem; color: var(--color-text-muted); }
 
-    /* ===== TESTIMONIOS VARIADOS ===== */
-    .section-testimonios { background: var(--color-surface); }
+    .section-testimonios { background: var(--color-surface); padding: 70px 0; }
     .testimonios-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -882,66 +818,11 @@
       box-shadow: var(--glow-amber);
     }
     .stars { color: var(--color-secondary); font-size: 1.1rem; margin-bottom: 12px; }
-    .testimonio-card p {
-      margin-bottom: 16px;
-      line-height: 1.6;
-      color: var(--color-text-muted);
-      font-size: 0.93rem;
-    }
-    .testimonio-card h4 {
-      font-weight: 600;
-      color: white;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .testimonio-verified {
-      color: var(--color-success);
-      font-size: 0.85rem;
-      font-weight: 500;
-    }
-    .video-testimonial {
-      position: relative;
-      border-radius: var(--radius);
-      overflow: hidden;
-      margin: 16px 0;
-      background: linear-gradient(135deg, #0d1626, #060b14);
-      border: 1px solid var(--color-border);
-      aspect-ratio: 16/9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-    .video-play-btn {
-      width: 56px; height: 56px;
-      background: rgba(251,191,36,0.15);
-      border: 2px solid rgba(251,191,36,0.4);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      color: var(--color-secondary);
-      transition: var(--transition);
-    }
-    .video-testimonial:hover .video-play-btn {
-      transform: scale(1.1);
-      background: rgba(251,191,36,0.25);
-    }
-    .video-caption {
-      position: absolute;
-      bottom: 10px; left: 10px; right: 10px;
-      background: rgba(0,0,0,0.75);
-      padding: 7px 12px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      color: var(--color-text-muted);
-    }
+    .testimonio-card p { margin-bottom: 16px; line-height: 1.6; color: var(--color-text-muted); font-size: 0.93rem; }
+    .testimonio-card h4 { font-weight: 600; color: white; display: flex; align-items: center; gap: 8px; }
+    .testimonio-verified { color: var(--color-success); font-size: 0.85rem; font-weight: 500; }
 
-    /* ===== COBERTURA Y COMUNAS ===== */
-    .section-cobertura { background: var(--color-dark); }
-    .section-comunas { background: var(--color-surface); }
+    .section-cobertura { background: var(--color-dark); padding: 70px 0; }
     .cobertura-tags {
       display: flex;
       flex-wrap: wrap;
@@ -965,40 +846,8 @@
       color: var(--color-primary);
       transform: translateY(-2px);
     }
-    .comunas-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 16px;
-      margin-top: 30px;
-    }
-    .comuna-card {
-      background: var(--color-surface-2);
-      padding: 24px;
-      border-radius: var(--radius);
-      border: 1px solid var(--color-border);
-      transition: var(--transition);
-      display: block;
-      color: var(--color-text);
-    }
-    .comuna-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(56,189,248,0.3);
-      box-shadow: var(--glow-blue);
-    }
-    .comuna-card span { font-size: 1.4rem; display: block; margin-bottom: 10px; }
-    .comuna-card h3 {
-      font-weight: 700;
-      margin-bottom: 6px;
-      font-size: 1rem;
-      color: white;
-    }
-    .comuna-card p {
-      color: var(--color-text-muted);
-      font-size: 0.88rem;
-    }
 
-    /* ===== FAQ ===== */
-    .section-faq { background: var(--color-dark); }
+    .section-faq { background: var(--color-dark); padding: 70px 0; }
     .faq-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -1027,17 +876,216 @@
       gap: 10px;
     }
     .faq-question span { font-size: 1.2rem; }
-    .faq-answer {
-      color: var(--color-text-muted);
-      line-height: 1.6;
-      font-size: 0.92rem;
-    }
+    .faq-answer { color: var(--color-text-muted); line-height: 1.6; font-size: 0.92rem; }
     .faq-answer a { color: var(--color-primary); }
-    .faq-answer strong { color: var(--color-text); }
 
-    /* ===== URGENCIA COMPETITIVA ===== */
+    .gasfiter-express-section {
+      background: var(--color-surface);
+      padding: 80px 20px;
+      margin: 0 auto;
+      text-align: center;
+      border-top: 1px solid var(--color-border-warm);
+      border-bottom: 1px solid var(--color-border-warm);
+      position: relative;
+      overflow: hidden;
+    }
+    .gasfiter-badge {
+      display: inline-block;
+      background: rgba(251,191,36,0.1);
+      border: 1px solid rgba(251,191,36,0.25);
+      padding: 7px 20px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.78rem;
+      margin-bottom: 20px;
+      color: var(--color-secondary);
+      letter-spacing: 1px;
+    }
+    .gasfiter-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      color: white;
+      margin-bottom: 20px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .gasfiter-title span { color: var(--color-secondary); }
+    .gasfiter-subtitle {
+      font-size: 1.05rem;
+      color: var(--color-text-muted);
+      margin-bottom: 30px;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+    .gasfiter-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-gasfiter-primary {
+      background: linear-gradient(135deg, var(--color-secondary), #d97706);
+      color: var(--color-dark);
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: var(--transition);
+      box-shadow: 0 8px 24px rgba(251,191,36,0.25);
+    }
+    .btn-gasfiter-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(251,191,36,0.4);
+    }
+    .btn-gasfiter-secondary {
+      background: transparent;
+      border: 1px solid rgba(251,191,36,0.4);
+      color: var(--color-secondary);
+      padding: 13px 34px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-gasfiter-secondary:hover {
+      background: rgba(251,191,36,0.08);
+      border-color: rgba(251,191,36,0.6);
+      transform: translateY(-2px);
+    }
+    .gasfiter-features {
+      margin-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+    .gasfiter-feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--color-text-muted);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--color-border);
+      padding: 7px 16px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+    }
+
+    .cta-final {
+      background: var(--color-dark);
+      color: white;
+      text-align: center;
+      padding: 90px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-final::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(56,189,248,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cta-final h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+      position: relative;
+    }
+    .cta-final p { font-size: 1.1rem; color: var(--color-text-muted); margin: 12px 0; position: relative; }
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 40px 0 20px;
+      position: relative;
+    }
+    .cta-trust {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      position: relative;
+    }
+    .cta-trust span { display: flex; align-items: center; gap: 6px; }
+
+    .site-footer {
+      background: #040810;
+      border-top: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      padding: 60px 0 20px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .site-footer h4 { color: white; font-weight: 700; margin-bottom: 18px; font-size: 1rem; letter-spacing: 0.02em; }
+    .site-footer p { margin-bottom: 10px; font-size: 0.9rem; line-height: 1.7; }
+    .contacto-info a { color: var(--color-primary); font-weight: 500; transition: var(--transition); }
+    .contacto-info a:hover { color: var(--color-secondary); }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .footer-links a { color: var(--color-text-muted); transition: var(--transition); font-size: 0.9rem; }
+    .footer-links a:hover { color: white; }
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid var(--color-border);
+      font-size: 0.85rem;
+      color: var(--color-gray-light);
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #34d399, #10b981);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 4px 24px rgba(52,211,153,0.35);
+      z-index: 1000;
+      transition: var(--transition);
+      animation: pulse-whatsapp 1.8s infinite;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 32px rgba(52,211,153,0.55);
+    }
+    @keyframes pulse-whatsapp {
+      0% { box-shadow: 0 0 0 0 rgba(52,211,153,0.5); }
+      70% { box-shadow: 0 0 0 14px rgba(52,211,153,0); }
+      100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); }
+    }
+
     .section-urgency {
       background: var(--color-surface);
+      padding: 70px 0;
       border-top: 1px solid var(--color-border-warm);
       border-bottom: 1px solid var(--color-border-warm);
       position: relative;
@@ -1093,11 +1141,7 @@
       font-weight: 800;
       color: var(--color-danger);
     }
-    .urgency-stat-label {
-      font-size: 0.85rem;
-      color: var(--color-text-muted);
-      margin-top: 2px;
-    }
+    .urgency-stat-label { font-size: 0.85rem; color: var(--color-text-muted); margin-top: 2px; }
     .countdown {
       display: flex;
       justify-content: center;
@@ -1119,282 +1163,10 @@
       font-weight: 800;
       color: var(--color-secondary);
     }
-    .countdown-label {
-      font-size: 0.75rem;
-      color: var(--color-text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
+    .countdown-label { font-size: 0.75rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
 
-    /* ===== GASFITER SECTION ===== */
-    .gasfiter-express-section {
-      background: var(--color-surface);
-      padding: 80px 20px;
-      margin: 0 auto;
-      text-align: center;
-      border-top: 1px solid var(--color-border-warm);
-      border-bottom: 1px solid var(--color-border-warm);
-      position: relative;
-      overflow: hidden;
-    }
-    .gasfiter-express-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 100%, rgba(251,191,36,0.05) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .gasfiter-badge {
-      display: inline-block;
-      background: rgba(251,191,36,0.1);
-      border: 1px solid rgba(251,191,36,0.25);
-      padding: 7px 20px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 0.78rem;
-      margin-bottom: 20px;
-      color: var(--color-secondary);
-      letter-spacing: 1px;
-      position: relative;
-    }
-    .gasfiter-title {
-      font-family: 'Outfit', sans-serif;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      color: white;
-      margin-bottom: 20px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      position: relative;
-    }
-    .gasfiter-title span {
-      color: var(--color-secondary);
-    }
-    .gasfiter-subtitle {
-      font-size: 1.05rem;
-      color: var(--color-text-muted);
-      margin-bottom: 30px;
-      max-width: 650px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.7;
-      position: relative;
-    }
-    .gasfiter-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-      position: relative;
-    }
-    .btn-gasfiter-primary {
-      background: linear-gradient(135deg, var(--color-secondary), #d97706);
-      color: var(--color-dark);
-      padding: 14px 36px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 1rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: var(--transition);
-      box-shadow: 0 8px 24px rgba(251,191,36,0.25);
-    }
-    .btn-gasfiter-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(251,191,36,0.4);
-    }
-    .btn-gasfiter-secondary {
-      background: transparent;
-      border: 1px solid rgba(251,191,36,0.4);
-      color: var(--color-secondary);
-      padding: 13px 34px;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: var(--transition);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-gasfiter-secondary:hover {
-      background: rgba(251,191,36,0.08);
-      border-color: rgba(251,191,36,0.6);
-      transform: translateY(-2px);
-    }
-    .gasfiter-features {
-      margin-top: 32px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      position: relative;
-    }
-    .gasfiter-feature {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--color-text-muted);
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--color-border);
-      padding: 7px 16px;
-      border-radius: 50px;
-      font-size: 0.9rem;
-    }
+    .section-beneficios { background: var(--color-surface); padding: 70px 0; }
 
-    /* ===== CTA FINAL ===== */
-    .cta-final {
-      background: var(--color-dark);
-      color: white;
-      text-align: center;
-      padding: 90px 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-final::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 50%, rgba(56,189,248,0.06) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .cta-final h2 {
-      font-family: 'Outfit', sans-serif;
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      font-weight: 800;
-      margin-bottom: 12px;
-      letter-spacing: -0.02em;
-      position: relative;
-    }
-    .cta-final p {
-      font-size: 1.1rem;
-      color: var(--color-text-muted);
-      margin: 12px 0;
-      position: relative;
-    }
-    .cta-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 40px 0 20px;
-      position: relative;
-    }
-    .cta-trust {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-top: 24px;
-      font-size: 0.9rem;
-      color: var(--color-text-muted);
-      position: relative;
-    }
-    .cta-trust span {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    /* ===== FOOTER ===== */
-    .site-footer {
-      background: #040810;
-      border-top: 1px solid var(--color-border);
-      color: var(--color-text-muted);
-      padding: 60px 0 20px;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-    .site-footer h4 {
-      color: white;
-      font-weight: 700;
-      margin-bottom: 18px;
-      font-size: 1rem;
-      letter-spacing: 0.02em;
-    }
-    .site-footer p {
-      margin-bottom: 10px;
-      font-size: 0.9rem;
-      line-height: 1.7;
-    }
-    .contacto-info a {
-      color: var(--color-primary);
-      font-weight: 500;
-      transition: var(--transition);
-    }
-    .contacto-info a:hover { color: var(--color-secondary); }
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 12px;
-    }
-    .footer-links a {
-      color: var(--color-text-muted);
-      transition: var(--transition);
-      font-size: 0.9rem;
-    }
-    .footer-links a:hover { color: white; }
-    .copyright {
-      text-align: center;
-      padding-top: 20px;
-      border-top: 1px solid var(--color-border);
-      font-size: 0.85rem;
-      color: var(--color-gray-light);
-    }
-
-    /* ===== FLOATING WHATSAPP ===== */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, #34d399, #10b981);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      box-shadow: 0 4px 24px rgba(52,211,153,0.35);
-      z-index: 1000;
-      transition: var(--transition);
-      animation: pulse-whatsapp 1.8s infinite;
-    }
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 32px rgba(52,211,153,0.55);
-    }
-    @keyframes pulse-whatsapp {
-      0% { box-shadow: 0 0 0 0 rgba(52,211,153,0.5); }
-      70% { box-shadow: 0 0 0 14px rgba(52,211,153,0); }
-      100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); }
-    }
-
-    /* ===== INLINE OVERRIDES ===== */
-    /* Make inline light bg sections dark */
-    .section-urgency [style*="background:white"],
-    .section-urgency [style*="background: white"] {
-      background: var(--color-surface-2) !important;
-      color: var(--color-text) !important;
-      border: 1px solid var(--color-border);
-    }
-    .section-urgency [style*="color:var(--color-gray)"],
-    .section-urgency [style*="color: var(--color-gray)"] {
-      color: var(--color-text-muted) !important;
-    }
-    .section-urgency [style*="color:var(--color-success)"] { color: var(--color-success) !important; }
-    .section-urgency [style*="color:var(--color-danger)"] { color: var(--color-danger) !important; }
-    [style*="background:var(--color-light)"],
-    [style*="background: var(--color-light)"] {
-      background: var(--color-surface-2) !important;
-    }
-
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
       .hero-grid { grid-template-columns: 1fr; text-align: center; }
       .hero-subtitle { margin-left: auto; margin-right: auto; }
@@ -1402,17 +1174,15 @@
       .hero-buttons { justify-content: center; }
       .trust-badges { justify-content: center; }
       .hero-image-wrapper { order: -1; }
+      .nav-menu { width: 100%; justify-content: center; }
+      .header-container { flex-direction: column; align-items: center; }
     }
     @media (max-width: 600px) {
       .live-bar { font-size: 0.82rem; padding: 8px 0; }
       .live-bar-content { gap: 8px; }
       .live-metrics { gap: 8px; }
-      .header-container { flex-wrap: wrap; gap: 10px; }
-      .nav-menu { width: 100%; justify-content: center; }
       .hero-buttons .btn-llamar, 
-      .hero-buttons .btn-whatsapp,
-      .cta-buttons .btn-llamar,
-      .cta-buttons .btn-whatsapp {
+      .hero-buttons .btn-whatsapp {
         padding: 15px 22px;
         font-size: 1rem;
         min-width: 175px;
@@ -1424,9 +1194,8 @@
       .countdown-item { padding: 10px 14px; min-width: 60px; }
       .countdown-value { font-size: 1.3rem; }
       .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-menu a { font-size: 0.8rem; padding: 5px 8px; }
     }
-
-    /* ===== ACCESIBILIDAD ===== */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -1442,7 +1211,7 @@
 </head>
 <body>
 
-<!-- 🔴 LIVE NOTIFICATION BAR (STICKY) -->
+<!-- LIVE NOTIFICATION BAR -->
 <div class="live-bar" id="liveBar">
   <div class="live-bar-content">
     <span class="live-badge">🔴 EN VIVO</span>
@@ -1475,15 +1244,13 @@
   </div>
 </header>
 
-<!-- HERO SECTION CON PRUEBA SOCIAL INMEDIATA -->
+<!-- HERO SECTION -->
 <section id="inicio" class="hero-section">
   <div class="container hero-grid">
     <div>
-      <!-- Headline basado en resultado específico -->
       <h1 class="hero-title">¿BAÑO TAPADO? <span>"Llegaron en 42 min y solucionaron todo"</span></h1>
       <p class="hero-subtitle">Destape urgente de alcantarillado, WC y cañerías en toda Las Condes. <strong>Atención 24/7, técnicos certificados, sin romper ni ensuciar.</strong> Únete a +5,000 clientes satisfechos.</p>
       
-      <!-- Social Proof Badges Above CTA -->
       <div class="social-proof-badges">
         <div class="rating-badge">
           <span class="rating-stars">★★★★★</span>
@@ -1500,13 +1267,11 @@
         </div>
       </div>
       
-      <!-- CTAs con microcopy de urgencia -->
       <div class="hero-buttons">
         <a href="tel:+56963571251" class="btn-llamar">📞 LLAMAR AHORA<br><small style="font-weight:400;font-size:0.9rem">Respuesta en <3 timbres</small></a>
         <a href="https://wa.me/56972091242?text=Hola%2C%20necesito%20un%20destape%20urgente%20en%20Las%20Condes" target="_blank" class="btn-whatsapp">💬 WHATSAPP<br><small style="font-weight:400;font-size:0.9rem">15% DTO hoy • Sin compromiso</small></a>
       </div>
       
-      <!-- Trust Badges -->
       <div class="trust-badges">
         <span class="badge">✔ Llegamos en <strong>60 min</strong></span>
         <span class="badge">✔ Atención <strong>24/7</strong></span>
@@ -1514,12 +1279,10 @@
         <span class="badge">✔ Sin romper cañerías</span>
       </div>
       
-      <!-- Garantía con prueba social -->
       <div class="guarantee-seal">
         🛡️ Garantía respaldada por 5,198 clientes • Tasa de satisfacción: 98.3%
       </div>
       
-      <!-- Stats en tiempo real -->
       <div class="hero-stats">
         <div class="hero-stat">
           <div class="hero-stat-value" id="servicesToday">34</div>
@@ -1626,14 +1389,13 @@
   </div>
 </section>
 
-<!-- CASE STUDIES DETALLADOS (PRUEBA SOCIAL PROFUNDA) -->
+<!-- CASE STUDIES -->
 <section id="casos" class="section-casos">
   <div class="container">
     <h2 class="section-title">Casos Reales en Las Condes: Resultados Verificados</h2>
     <p class="section-subtitle">Casos documentados en Las Condes con métricas BEFORE/AFTER verificables</p>
     
     <div class="casos-grid">
-      <!-- CASO 1 -->
       <div class="caso-card">
         <div class="caso-header">
           <img src="https://i.pravatar.cc/80?img=32" alt="Cliente" class="caso-avatar">
@@ -1662,7 +1424,6 @@
         <div class="caso-timestamp">Actualizado: hace 3 días</div>
       </div>
       
-      <!-- CASO 2 -->
       <div class="caso-card">
         <div class="caso-header">
           <img src="https://i.pravatar.cc/80?img=51" alt="Cliente" class="caso-avatar">
@@ -1691,7 +1452,6 @@
         <div class="caso-timestamp">Actualizado: hace 1 semana</div>
       </div>
       
-      <!-- CASO 3 -->
       <div class="caso-card">
         <div class="caso-header">
           <img src="https://i.pravatar.cc/80?img=68" alt="Cliente" class="caso-avatar">
@@ -1723,7 +1483,7 @@
   </div>
 </section>
 
-<!-- DASHBOARD EN TIEMPO REAL -->
+<!-- DASHBOARD -->
 <section class="section-dashboard">
   <div class="container">
     <h2 class="section-title" style="color:white">Actividad en Tiempo Real</h2>
@@ -1758,14 +1518,13 @@
   </div>
 </section>
 
-<!-- TESTIMONIOS EN FORMATO VARIADO -->
+<!-- TESTIMONIOS -->
 <section class="section-testimonios">
   <div class="container">
     <h2 class="section-title">Lo que dicen nuestros clientes en Las Condes</h2>
     <p class="section-subtitle">Testimonios reales, verificables y actualizados</p>
     
     <div class="testimonios-grid">
-      <!-- Texto + Foto -->
       <div class="testimonio-card">
         <div class="stars">★★★★★</div>
         <p>"Llamé a las 3am, llegaron en 40 minutos. Rápidos, profesionales y sin ensuciar. ¡Totalmente recomendable!"</p>
@@ -1773,18 +1532,16 @@
         <small style="color:var(--color-text-muted)">Las Condes • Hace 5 días</small>
       </div>
       
-      <!-- Video Testimonial Placeholder -->
       <div class="testimonio-card">
         <div class="stars">★★★★★</div>
-        <div class="video-testimonial" onclick="alert('▶️ Reproduciendo testimonio de Patricia M.')">
-          <div class="video-play-btn">▶</div>
-          <div class="video-caption">Patricia M. • Las Condes • 2:14 min</div>
+        <div class="video-testimonial" style="position:relative;border-radius:var(--radius);overflow:hidden;margin:16px 0;background:linear-gradient(135deg,#0d1626,#060b14);border:1px solid var(--color-border);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;cursor:pointer;" onclick="alert('▶️ Reproduciendo testimonio de Patricia M.')">
+          <div style="width:56px;height:56px;background:rgba(251,191,36,0.15);border:2px solid rgba(251,191,36,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--color-secondary);transition:var(--transition);">▶</div>
+          <div style="position:absolute;bottom:10px;left:10px;right:10px;background:rgba(0,0,0,0.75);padding:7px 12px;border-radius:8px;font-size:0.85rem;color:var(--color-text-muted);">Patricia M. • Las Condes • 2:14 min</div>
         </div>
         <p>"Destaparon el baño de mi hija sin romper nada. El técnico fue muy respetuoso y explicó todo el proceso."</p>
         <h4>— Patricia M. <span class="testimonio-verified">✓ Video verificado</span></h4>
       </div>
       
-      <!-- Screenshot + Texto -->
       <div class="testimonio-card">
         <div class="stars">★★★★★</div>
         <p>"Muy buena atención, precio justo y solución inmediata. Ya los tengo guardados para cualquier emergencia."</p>
@@ -1796,7 +1553,6 @@
       </div>
     </div>
     
-    <!-- Reviews Embed Placeholder -->
     <div style="text-align:center; margin-top:40px">
       <p style="color:var(--color-text-muted); margin-bottom:16px">📊 +1,198 reseñas verificadas en Google y Facebook</p>
       <div style="display:inline-flex; align-items:center; gap:12px; background:var(--color-surface-2); border:1px solid var(--color-border); padding:12px 24px; border-radius:50px">
@@ -1808,7 +1564,7 @@
   </div>
 </section>
 
-<!-- URGENCIA COMPETITIVA + POR QUÉ AHORA -->
+<!-- URGENCIA -->
 <section class="section-urgency">
   <div class="container urgency-content">
     <div class="urgency-badge">⚡ DEMANDA ALTA EN TU ZONA</div>
@@ -1830,7 +1586,6 @@
       </div>
     </div>
     
-    <!-- Countdown real -->
     <div class="countdown">
       <div class="countdown-item">
         <div class="countdown-value" id="hours">23</div>
@@ -1852,20 +1607,20 @@
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; text-align:left">
         <div>
           <strong style="color:var(--color-success)">✅ Actuar AHORA:</strong>
-          <ul style="margin-top:10px; font-size:0.92rem; color:var(--color-text-muted)">
-            <li>• 15% descuento aplicado</li>
-            <li>• Cupo garantizado en tu zona</li>
-            <li>• Técnico más cercano asignado</li>
-            <li>• Respuesta en <60 min</li>
+          <ul style="margin-top:10px; font-size:0.92rem; color:var(--color-text-muted); list-style:none; padding:0">
+            <li style="margin-bottom:6px">• 15% descuento aplicado</li>
+            <li style="margin-bottom:6px">• Cupo garantizado en tu zona</li>
+            <li style="margin-bottom:6px">• Técnico más cercano asignado</li>
+            <li style="margin-bottom:6px">• Respuesta en <60 min</li>
           </ul>
         </div>
         <div>
           <strong style="color:var(--color-danger)">❌ Esperar:</strong>
-          <ul style="margin-top:10px; font-size:0.92rem; color:var(--color-text-muted)">
-            <li>• Precio completo sin descuento</li>
-            <li>• Posible espera por alta demanda</li>
-            <li>• Técnico de zona lejana</li>
-            <li>• Riesgo de daño mayor</li>
+          <ul style="margin-top:10px; font-size:0.92rem; color:var(--color-text-muted); list-style:none; padding:0">
+            <li style="margin-bottom:6px">• Precio completo sin descuento</li>
+            <li style="margin-bottom:6px">• Posible espera por alta demanda</li>
+            <li style="margin-bottom:6px">• Técnico de zona lejana</li>
+            <li style="margin-bottom:6px">• Riesgo de daño mayor</li>
           </ul>
         </div>
       </div>
@@ -1873,22 +1628,21 @@
   </div>
 </section>
 
-<!-- COBERTURA Y COMUNAS -->
+<!-- COBERTURA -->
 <section id="cobertura" class="section-cobertura">
   <div class="container">
     <h2 class="section-title">Atendemos en toda Las Condes</h2>
     <p class="section-subtitle">Flota distribuida en Las Condes para respuesta inmediata en tu barrio</p>
     
     <div class="cobertura-tags">
-      <span class="tag">San Carlos de Apoquindo</span><span class="tag">El Golf</span><span class="tag">Los Dominicos</span><span class="tag">Manquehue</span>
-      <span class="tag">Escuela Militar</span><span class="tag">Apoquindo</span><span class="tag">Alonso de Córdova</span><span class="tag">+12 barrios</span>
-    </div>
-    
-    <div class="comunas-grid" style="margin-top:40px">
-      <a href="/comunas/las-condes.html" class="comuna-card"><span>📍</span><h3>Destapes en San Carlos de Apoquindo</h3><p>Atención inmediata en San Carlos, Camino El Alba, Los Dominicos y alrededores</p></a>
-      <a href="/comunas/las-condes.html" class="comuna-card"><span>📍</span><h3>Destapes en El Golf</h3><p>Cobertura total en El Golf, Av. Apoquindo, Isidora Goyenechea y calles aledañas</p></a>
-      <a href="/comunas/las-condes.html" class="comuna-card"><span>📍</span><h3>Destapes en Manquehue</h3><p>Llegamos a Manquehue, Los Dominicos, Cerro Colorado y zona norte</p></a>
-      <a href="/comunas/las-condes.html" class="comuna-card"><span>📍</span><h3>Destapes en Apoquindo</h3><p>Servicio express en Apoquindo, Escuela Militar, Costanera Center y más</p></a>
+      <span class="tag">San Carlos de Apoquindo</span>
+      <span class="tag">El Golf</span>
+      <span class="tag">Los Dominicos</span>
+      <span class="tag">Manquehue</span>
+      <span class="tag">Escuela Militar</span>
+      <span class="tag">Apoquindo</span>
+      <span class="tag">Alonso de Córdova</span>
+      <span class="tag">+12 barrios</span>
     </div>
   </div>
 </section>
@@ -1918,7 +1672,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-question"><span>📍</span> ¿Atienden mi comuna?</div>
-        <div class="faq-answer">Cubrimos toda Las Condes: San Carlos de Apoquindo, El Golf, Los Dominicos, Manquehue, Escuela Militar, Apoquindo y +12 barrios. <a href="#cobertura" style="color:var(--color-primary); font-weight:500">Ver cobertura completa →</a></div>
+        <div class="faq-answer">Cubrimos toda Las Condes: San Carlos de Apoquindo, El Golf, Los Dominicos, Manquehue, Escuela Militar, Apoquindo y +12 barrios.</div>
       </div>
       <div class="faq-item">
         <div class="faq-question"><span>📞</span> ¿Cómo contrato el servicio?</div>
@@ -1930,32 +1684,32 @@
 
 <!-- GASFITER SECTION -->
 <section class="gasfiter-express-section">
-    <div style="max-width: 900px; margin: 0 auto;">
-        <div class="gasfiter-badge">🚀 NUEVO SERVICIO ESPECIALIZADO</div>
-        <h2 class="gasfiter-title">
-            Ahora también somos <span>Gasfiter Las Condes 24h</span>
-        </h2>
-        <p class="gasfiter-subtitle">
-            ⚡ Instalación y reparación de calefont • Tuberías de cobre • Cocinas a gas • Urgencias 24/7
-        </p>
-        <div class="gasfiter-buttons">
-            <a href="/gasfiter-las-condes-24h.html" class="btn-gasfiter-primary">
-                🔥 Conocer servicio Gasfiter → 
-            </a>
-            <a href="https://wa.me/56972091242?text=Hola%2C%20necesito%20un%20gasfiter%20urgente%20en%20Las%20Condes" class="btn-gasfiter-secondary">
-                💬 Consultar por WhatsApp
-            </a>
-        </div>
-        <div class="gasfiter-features">
-            <div class="gasfiter-feature"><span style="font-size:1.2rem">🔧</span> Calefont</div>
-            <div class="gasfiter-feature"><span style="font-size:1.2rem">🥉</span> Tuberías de cobre</div>
-            <div class="gasfiter-feature"><span style="font-size:1.2rem">🍳</span> Cocinas a gas</div>
-            <div class="gasfiter-feature"><span style="font-size:1.2rem">⚡</span> Urgencias 24/7</div>
-        </div>
+  <div style="max-width: 900px; margin: 0 auto;">
+    <div class="gasfiter-badge">🚀 NUEVO SERVICIO ESPECIALIZADO</div>
+    <h2 class="gasfiter-title">
+      Ahora también somos <span>Gasfiter Las Condes 24h</span>
+    </h2>
+    <p class="gasfiter-subtitle">
+      ⚡ Instalación y reparación de calefont • Tuberías de cobre • Cocinas a gas • Urgencias 24/7
+    </p>
+    <div class="gasfiter-buttons">
+      <a href="/gasfiter-las-condes-24h.html" class="btn-gasfiter-primary">
+        🔥 Conocer servicio Gasfiter → 
+      </a>
+      <a href="https://wa.me/56972091242?text=Hola%2C%20necesito%20un%20gasfiter%20urgente%20en%20Las%20Condes" class="btn-gasfiter-secondary">
+        💬 Consultar por WhatsApp
+      </a>
     </div>
+    <div class="gasfiter-features">
+      <div class="gasfiter-feature"><span style="font-size:1.2rem">🔧</span> Calefont</div>
+      <div class="gasfiter-feature"><span style="font-size:1.2rem">🥉</span> Tuberías de cobre</div>
+      <div class="gasfiter-feature"><span style="font-size:1.2rem">🍳</span> Cocinas a gas</div>
+      <div class="gasfiter-feature"><span style="font-size:1.2rem">⚡</span> Urgencias 24/7</div>
+    </div>
+  </div>
 </section>
 
-<!-- CTA FINAL CON URGENCIA + ESCASEZ -->
+<!-- CTA FINAL -->
 <section class="cta-final">
   <div class="container">
     <h2>¿BAÑO TAPADO EN LAS CONDES? ¡SOLUCIÓN INMEDIATA!</h2>
@@ -2012,11 +1766,10 @@
         <a href="/comunas/las-condes.html">Apoquindo</a>
       </div>
       <p style="margin-top:16px; font-size:0.95rem">+12 barrios en Las Condes</p>
-      <p style="margin-top:12px">📍 <a href="#cobertura" style="color:var(--color-primary); font-weight:500">Ver cobertura completa →</a></p>
       <h4 style="margin-top:24px">Otras comunas atendidas</h4>
       <div class="footer-links">
         <a href="/comunas/providencia.html">Providencia</a>
-        <a href="/comunas/nuñoa.html">Ñuñoa</a>
+        <a href="/comunas/nunoa.html">Ñuñoa</a>
         <a href="/comunas/san-miguel.html">San Miguel</a>
         <a href="/comunas/santiago-centro.html">Santiago Centro</a>
         <a href="/comunas/la-dehesa.html">La Dehesa</a>
@@ -2038,17 +1791,20 @@
   </div>
   <div class="container copyright">
     © 2026 Destapes Las Condes 24H - Todos los derechos reservados. | Teléfono: +56 9 6357 1251
+    <br>
+    <a href="/politica-de-privacidad.html" style="color:var(--color-primary);">🔒 Política de Privacidad</a> | 
+    <a href="/terminos-y-condiciones.html" style="color:var(--color-primary);">📋 Términos y Condiciones</a>
   </div>
 </footer>
 
 <!-- Floating WhatsApp Button -->
 <a href="https://wa.me/56972091242?text=Hola%2C%20necesito%20un%20destape%20urgente%20en%20Las%20Condes" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp urgente">💬</a>
 
-<!-- JS para métricas dinámicas y CRO -->
+<!-- JS -->
 <script>
-// ===== CONFIGURACIÓN DE MÉTRICAS DINÁMICAS =====
+// ===== CONFIGURACIÓN =====
 const config = {
-  updateInterval: 120000, // 2 minutos
+  updateInterval: 120000,
   minClients: 18,
   maxClients: 34,
   minResponse: 38,
@@ -2061,35 +1817,27 @@ const config = {
   nearbyServices: 23
 };
 
-// ===== FUNCIÓN PARA ACTUALIZAR MÉTRICAS =====
 function updateMetrics() {
-  // Clientes hoy (variación aleatoria controlada)
   const clientsToday = Math.floor(Math.random() * (config.maxClients - config.minClients + 1)) + config.minClients;
   document.getElementById('clientsToday').textContent = '+' + clientsToday;
   
-  // Tiempo de respuesta
   const responseTime = Math.floor(Math.random() * (config.maxResponse - config.minResponse + 1)) + config.minResponse;
   document.getElementById('responseTime').textContent = responseTime;
   
-  // Cupos disponibles
   const spotsLeft = Math.floor(Math.random() * (config.maxSpots - config.minSpots + 1)) + config.minSpots;
   document.getElementById('spotsLeft').textContent = spotsLeft;
   document.getElementById('spotsAvailable').textContent = spotsLeft;
   document.getElementById('finalSpots').textContent = spotsLeft;
   
-  // Servicios hoy
   const services = Math.floor(Math.random() * 15) + config.servicesToday - 7;
   document.getElementById('servicesToday').textContent = Math.max(services, config.servicesToday - 10);
   
-  // Clientes activos
   const active = Math.floor(Math.random() * 8) + 8;
   document.getElementById('activeClients').textContent = active;
   
-  // Servicios en zona cercana
   const nearby = Math.floor(Math.random() * 12) + 18;
   document.getElementById('nearbyServices').textContent = nearby;
   
-  // Timestamp de actualización
   const now = new Date();
   const minutes = now.getMinutes();
   const lastUpdate = minutes <= 2 ? 'hace 2 min' : minutes <= 4 ? 'hace 4 min' : 'hace 1 min';
@@ -2097,7 +1845,6 @@ function updateMetrics() {
   document.getElementById('dashboardUpdate').textContent = lastUpdate;
 }
 
-// ===== COUNTDOWN REAL HASTA MEDIANOCHE =====
 function updateCountdown() {
   const now = new Date();
   const midnight = new Date();
@@ -2115,19 +1862,12 @@ function updateCountdown() {
   }
 }
 
-// ===== INICIALIZACIÓN =====
 document.addEventListener('DOMContentLoaded', function() {
-  // Actualizar métricas iniciales
   updateMetrics();
   updateCountdown();
-  
-  // Actualizar cada 2 minutos
   setInterval(updateMetrics, config.updateInterval);
-  
-  // Actualizar countdown cada segundo
   setInterval(updateCountdown, 1000);
   
-  // Tracking de eventos WhatsApp para Meta Pixel
   document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"]').forEach(link => {
     link.addEventListener('click', function() {
       if (typeof fbq !== 'undefined') {
@@ -2137,7 +1877,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  // Tracking de llamadas
   document.querySelectorAll('a[href^="tel:"]').forEach(link => {
     link.addEventListener('click', function() {
       if (typeof fbq !== 'undefined') {
@@ -2148,7 +1887,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// ===== ACCESIBILIDAD: REDUCIR MOVIMIENTO =====
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   document.querySelectorAll('*').forEach(el => {
     el.style.animation = 'none';
@@ -2157,7 +1895,6 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 }
 </script>
 
-<!-- Script adicional para eventos de WhatsApp -->
 <script>
 document.addEventListener('click', function(e) {
     if (e.target.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"]')) {
@@ -2169,6 +1906,6 @@ document.addEventListener('click', function(e) {
     }
 });
 </script>
-  <script src="https://beta.leadconnectorhq.com/loader.js" data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a1f9ef76b7db72024139437"></script>
+<script src="https://beta.leadconnectorhq.com/loader.js" data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a1f9ef76b7db72024139437"></script>
 </body>
 </html>
