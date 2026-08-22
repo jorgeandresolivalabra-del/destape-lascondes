@@ -1606,21 +1606,48 @@
         padding: 36px 34px;
       }
     }
+
+    /* ========== NUEVA SECCIÓN DE TRANSPARENCIA ========== */
+    .transparency-section {
+      background: #f8fafc;
+      padding: 40px 0;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    }
+    .transparency-card {
+      background: white;
+      border-radius: 20px;
+      padding: 28px 30px;
+      max-width: 900px;
+      margin: 0 auto;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+      border: 1px solid rgba(37, 99, 235, 0.08);
+      display: grid;
+      gap: 6px;
+    }
+    .transparency-card p {
+      color: #334155;
+      line-height: 1.7;
+      font-size: 1rem;
+      margin: 0;
+    }
+    .transparency-card strong {
+      color: #0f172a;
+    }
+    .transparency-card .transparency-icon {
+      font-size: 1.4rem;
+      margin-right: 8px;
+    }
+    @media (max-width: 640px) {
+      .transparency-card {
+        padding: 24px 20px;
+      }
+      .transparency-card p {
+        font-size: 0.95rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- Branding y propósito para verificación Google -->
-<header style="margin: 32px 0 24px 0; text-align: center;">
-  <h1 style="font-size:2.2rem; font-weight:800; color:#1d4ed8;">
-    Destapes Santiago 24H
-  </h1>
-  <p style="font-size:1.2rem; color:#0f172a; max-width:680px; margin:16px auto 8px;">
-    <strong>Destapes Santiago 24H</strong> es una aplicación que permite agendar y coordinar servicios de destape en Santiago usando tu cuenta de Google. Utilizamos permisos de Google Workspace (correo, calendario y hojas de cálculo) para que puedas solicitar y monitorear atención técnica en minutos, sin necesidad de crear cuentas nuevas.
-  </p>
-  <p style="font-size:1.08rem; color:#1e293b; max-width:680px; margin:0 auto;">
-    🔐 <strong>¿Por qué usamos Google?</strong> Usamos el inicio de sesión con Google solo para coordinar tus solicitudes y automatizar la comunicación del servicio. No transferimos ni vendemos tus datos. La integración con Google te permite gestionar agendas, recibir notificaciones y confirmar detalles directamente en tu cuenta Google de forma segura.
-  </p>
-</header>
   <header class="site-header">
     <div class="container header-container">
       <a href="/" class="brand">
@@ -1651,14 +1678,6 @@
         <p class="hero-eyebrow"> Empresa premium de Destape y gasfitería</p>
         <h1 class="hero-title">Destape urgente en Santiago con técnicos locales en menos de 30 minutos</h1>
         <p class="hero-text">Expertos en destape de alcantarillado, WC y drenajes. Atención 24/7, con garantía, equipamiento profesional y respuesta inmediata para hogares y edificios.</p>
-                <!-- ===== NUEVO BLOQUE: EXPLICACIÓN DEL PROPÓSITO PARA GOOGLE ===== -->
-<div style="margin-top: 24px; padding: 16px 20px; background: #eef2ff; border-radius: 12px; border-left: 4px solid #2563eb; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-  <p style="margin: 0; font-size: 0.95rem; color: #1e293b;">
-    <strong>🔐 ¿Por qué usamos Google?</strong> 
-    Utilizamos el inicio de sesión con Google para que puedas <strong>agendar tus servicios de destape de forma rápida y segura</strong>, 
-    sin necesidad de crear una cuenta nueva. Tu información está protegida y solo la usamos para coordinar tu atención.
-  </p>
-</div>
         <div class="hero-actions">
           <a href="tel:+56963571251" class="btn-llamar"> Llamar Ahora</a>
           <a href="https://wa.me/56972091242?text=Hola%2C%20necesito%20un%20destape%20urgente%20en%20Santiago" target="_blank" rel="noopener noreferrer" class="btn-whatsapp"> WhatsApp</a>
@@ -2043,6 +2062,19 @@
         <a href="/comunas/macul.html" class="tag">Macul</a>
         <a href="/comunas/la-dehesa.html" class="tag">La Dehesa</a>
         <a href="/comunas/providencia.html" class="tag">Providencia</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NUEVA SECCIÓN DE TRANSPARENCIA (ANTES DEL FOOTER) ===== -->
+  <section class="transparency-section">
+    <div class="container">
+      <div class="transparency-card">
+        <p>
+          <span class="transparency-icon">🔐</span>
+          <strong>Transparencia para usuarios de Google:</strong> 
+          Destapes Santiago 24H utiliza el inicio de sesión con Google exclusivamente para que puedas agendar y coordinar tus servicios de destape de forma rápida y segura, sin necesidad de crear una cuenta adicional. Tu información solo se usa para registrar y notificar tus solicitudes; nunca se vende ni comparte con terceros. La integración con Google Workspace permite automatizar agendas, notificaciones y coordinación, asegurando seguridad y privacidad en todo momento.
+        </p>
       </div>
     </div>
   </section>
