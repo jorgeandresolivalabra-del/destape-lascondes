@@ -1,0 +1,25 @@
+Rutas internas encontradas en el HTML oficial:
+
+/
+/comunas/cerro-navia.html
+/comunas/conchali.html
+/comunas/huechuraba.html
+/comunas/independencia.html
+/comunas/la-dehesa.html
+/comunas/la-florida.html
+/comunas/las-condes.html
+/comunas/lo-barnechea.html
+/comunas/macul.html
+/comunas/maipu.html
+/comunas/nunoa.html
+/comunas/providencia.html
+/comunas/pudahuel.html
+/comunas/quilicura.html
+/comunas/recoleta.html
+/comunas/renca.html
+/comunas/san-miguel.html
+/comunas/santiago-centro.html
+/comunas/vitacura.html
+/index.html
+/politica-de-privacidad.html
+/terminos-y-condiciones.html
