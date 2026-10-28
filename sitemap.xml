@@ -1,31 +1,154 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <!-- HOME -->
   <url>
     <loc>https://destapesantiago24h.cl/</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://destapesantiago24h.cl/activos/Destape.png</image:loc>
+      <image:title>Destapes urgentes 24 horas en Santiago</image:title>
+    </image:image>
+    <video:video>
+      <video:thumbnail_loc>https://destapesantiago24h.cl/activos/Destape_de_alcantarillado.jpg</video:thumbnail_loc>
+      <video:title>Servicio de destape de alcantarillado en Santiago</video:title>
+      <video:description>Nuestro equipo profesional realizando un destape de alcantarillado de urgencia.</video:description>
+      <video:content_loc>https://destapesantiago24h.cl/activos/Emergency_plumbing_service_video_202606090324.mp4</video:content_loc>
+    </video:video>
   </url>
-  <url>
-    <loc>https://destapesantiago24h.cl/comunas/san-miguel.html</loc>
-    <lastmod>2026-04-01</lastmod>
-  </url>
+
+  <!-- COMUNAS (ordenadas por volumen de búsqueda) -->
   <url>
     <loc>https://destapesantiago24h.cl/comunas/santiago-centro.html</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://destapesantiago24h.cl/comunas/providencia.html</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://destapesantiago24h.cl/comunas/maipu.html</loc>
-    <lastmod>2026-04-01</lastmod>
+    <loc>https://destapesantiago24h.cl/comunas/las-condes.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://destapesantiago24h.cl/comunas/nunoa.html</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://destapesantiago24h.cl/comunas/maipu.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://destapesantiago24h.cl/comunas/vitacura.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://destapesantiago24h.cl/comunas/la-florida.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://destapesantiago24h.cl/comunas/la-dehesa.html</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://destapesantiago24h.cl/comunas/lo-barnechea.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://destapesantiago24h.cl/comunas/san-miguel.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://destapesantiago24h.cl/comunas/macul.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://destapesantiago24h.cl/comunas/pudahuel.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://destapesantiago24h.cl/comunas/quilicura.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://destapesantiago24h.cl/comunas/recoleta.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://destapesantiago24h.cl/comunas/renca.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://destapesantiago24h.cl/comunas/independencia.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://destapesantiago24h.cl/comunas/conchali.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://destapesantiago24h.cl/comunas/cerro-navia.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://destapesantiago24h.cl/comunas/huechuraba.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- LEGALES -->
+  <url>
+    <loc>https://destapesantiago24h.cl/politica-de-privacidad.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://destapesantiago24h.cl/terminos-y-condiciones.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
