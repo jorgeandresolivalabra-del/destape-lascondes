@@ -1,4 +1,13 @@
 User-agent: *
 Allow: /
 
+# Archivos internos de desarrollo (no rastrear)
+Disallow: /actualizar_paginas.py
+Disallow: /gen_comunas.py
+Disallow: /extensions.json
+Disallow: /rutas-internas-conservadas.txt
+Disallow: /folleto-referencia-original.jpg
+Disallow: /README.txt
+
+# Sitemap
 Sitemap: https://destapesantiago24h.cl/sitemap.xml
