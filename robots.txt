@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.destapesantiago24h.cl/sitemap.xml
+
+Sitemap: https://destapesantiago24h.cl/sitemap.xml
